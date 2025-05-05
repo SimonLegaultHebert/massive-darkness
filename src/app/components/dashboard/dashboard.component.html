@@ -1,31 +1,43 @@
-<form [formGroup]="playersForm">
-    <select class="form-select" aria-label="Default select example" formControlName="players">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-    </select>
-</form>
+<div id="test">
+    abcdefghijklmnopqrstuvwyyz
+</div>
+<div class="row">
+    <div class="col-3 offset-9 text-end">
+        <form [formGroup]="playersForm">
+            <label for="players">Nombre de joueurs</label>
+            <select class="form-select" aria-label="Default select example" formControlName="players" name="players" id="players-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
+            <select class="form-select" aria-label="Default select example" formControlName="name">
+                <div *ngFor="let monster of monstersData.monstersLevel1">
+                    <option [value]="monster.name">{{monster.name}}</option>
+                </div>
+            </select>
+            <select class="form-select" aria-label="Default select example" formControlName="level">
+                <option value="1-2">Level 1-2</option>
+                <option value="3-4">Level 3-4</option>
+                <option value="5">Level 5</option>
+            </select>
+            <br>
+            <button type="submit">ADD MONSTER</button>
+        </form>
+    </div>
+</div>
 
-<form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
-    <select class="form-select" aria-label="Default select example" formControlName="name">
-        <div *ngFor="let monster of monstersData.monstersLevel1">
-            <option [value]="monster.name">{{monster.name}}</option>
-        </div>
-    </select>
-    <select class="form-select" aria-label="Default select example" formControlName="level">
-        <option value="1-2">LEVEL 1-2</option>
-        <option value="3-4">LEVEL 3-4</option>
-        <option value="5">LEVEL 5</option>
-    </select>
-    <br>
-    <button type="submit">ADD MONSTER</button>
-</form>
 
-<div *ngIf="monsterList">
-    <div *ngFor="let monster of monsterList;">
+<div *ngIf="monsterList" class="row rpgui-container framed-grey">
+    <div *ngFor="let monster of monsterList;" class="col-md-6">
         <app-monster [monster]="monster"></app-monster>
     </div>
 </div>

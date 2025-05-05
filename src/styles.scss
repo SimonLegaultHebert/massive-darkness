@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Custom';
+    src: url('/MassiveDarkness2.otf') format('opentype');
+}
+
+body {
+    background-color: #222;
+}
