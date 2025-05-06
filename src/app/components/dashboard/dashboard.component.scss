@@ -3,12 +3,39 @@
 }
 
 #players-select {
-    width: 25%;
-    margin-left:75%;
+    width: 25% !important;
+    margin-left:75% !important;
     margin-top: 5px;
+}
+
+.row-players {
+    margin-bottom: 1rem;
 }
 
 .custom-position {
     position: relative;
 }
 
+h6 {
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1.0em;
+    line-height: 20px;
+}
+
+.button-text {
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1.0em;
+    line-height: 20px;
+}
+
+select option:hover {
+    box-shadow: 0 0 10px 100px #1882A8 inset;
+}
+
+.monsters-list {
+    margin-top: 1rem;
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
