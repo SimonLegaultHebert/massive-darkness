@@ -4,14 +4,14 @@
             "name": "Demons",
             "drop": 1,
             "health": 3,
-            "defense": 1,
-            "action": "Combat 1 : Attacking or defending Hero discards 1 mana"
+            "defense": 4,
+            "action": "COMBAT 1 <span class=\"custom-font special\">e</span> : Attacking or defending Hero discards 1 <span class=\"custom-font mana\">c</span>"
         },
         {
             "name": "Undead",
             "drop": 1,
             "health": 4,
-            "defense": 0,
+            "defense": 5,
             "action": "Attack 1 : +1 orange dice and this Mob takes 2 Wounds"
         }
     ],
@@ -20,7 +20,7 @@
             "name": "Demons",
             "drop": 1,
             "health": 3,
-            "defense": 1,
+            "defense": 5,
             "action": "Combat 1 : Attacking or defending Hero discards 1 mana"
         },
         {

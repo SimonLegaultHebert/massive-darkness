@@ -1,69 +1,60 @@
-<!-- <div class="card rpgui-container framed-golden-2 custom-position">
-    <div class="card-header">
-        <div class="row">
-          <div class="col-10">
-            <p class="card-text">{{monster.id}}</p>
-          </div>
-          <div class="col-2">
-            <button type="button" class="btn btn-primary" aria-label="Close" (click)="deleteMonster()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <img src="/monsters/Untitled.png" class="card-img-top" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{monster.name}}</h5>
-          <p class="card-text">Loot drop: {{monster.drop}}</p>
-          <p class="card-text">Defense : {{monster.defense}}</p>
-          <p class="card-text">Health : {{monster.health}}</p>
-          <p class="card-text">Mobs : {{currentMobNumber}}</p>
-          <p class="card-text">{{monster.action}}</p>
-          <input type="number" min="0" max="{{maxLife}}" [(ngModel)]="currentLife" (ngModelChange)="damageDone(currentLife)">
-        </div>
-      </div>
-    </div>
-  </div> -->
-
 <div class="rpgui-container framed-golden-2 custom-position">
-  <div class="row">
-    <div class="col-10">
-      <p class="card-text">{{monster.id}}</p>
+  <div class="row" style="margin-bottom: 5px;">
+    <div class="col-10" style="">
+      <h1 style="text-align: left;">{{monster.name | uppercase}}</h1>
     </div>
-    <div class="col-2">
-      <button type="button" class="btn btn-primary" aria-label="Close" (click)="deleteMonster()">
+    <div class="col-2 text-end" style="padding-right: 0;">
+      <button (click)="deleteMonster()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
-      <img src="/monsters/Untitled.png" class="card-img-top" alt="...">
+    <div class="col-md-4 rpgui-container framed-grey">
+      <img src="/monsters/Untitled.png" class="card-img-top" alt="..." style="height: 100%;">
     </div>
     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{monster.name}}</h5>
-        <p class="card-text">Loot drop: {{monster.drop}}</p>
-        <p class="card-text">Defense : {{monster.defense}}</p>
-        <p class="card-text">Health : {{monster.health}}</p>
-        <p class="card-text">Mobs : {{currentMobNumber}}</p>
-        <p class="card-text">{{monster.action}}</p>
-        <input type="number" min="0" max="{{maxLife}}" [(ngModel)]="currentLife" (ngModelChange)="damageDone(currentLife)">
+      <div class="row">
+        <div class="col-6">
+          <p>Cagnotte: {{monster.drop}}</p>
+        </div>
+        <div class="col-6 text-end">
+          <p>Sbires : {{currentMobNumber}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Défense : <span class="custom-font defense">{{defenseIcons}}</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>HP : {{currentLife}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p [innerHtml]="monster.action"></p>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+        <hr>
+        <div class="col">
+          <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
+            <div class="row">
+              <div class="col-6 offset-3">
+                <label for="damage">Dommage</label>
+                <input type="number" min="0" max="{{maxLife}}" formControlName="damage" name="damage" class="text-center" style="margin-top:5px; margin-bottom: 5px;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 offset-3">
+                <button type="submit button" class="rpgui-button golden" style="width: 100%;"><p class="button-text">Appliquer</p></button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- 
-  <div class="rpgui-container framed-golden rpgui-draggable" style="width:180px; height:180px; left:280px; top:540px;">
-    <p>This is a golden frame.</p>
-</div>
-<div class="rpgui-container framed-golden-2 rpgui-draggable" style="width:180px; height:180px; left:462px; top:540px;">
-    <p>This is a golden-2 frame.</p>
-</div>
-<div class="rpgui-container framed-grey rpgui-draggable" style="width:180px; height:180px; left:280px; top:720px;">
-    <p>This is a grey frame.</p>
-</div> -->

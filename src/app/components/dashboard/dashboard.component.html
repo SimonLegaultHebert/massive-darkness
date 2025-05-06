@@ -1,6 +1,3 @@
-<div id="test">
-    abcdefghijklmnopqrstuvwyyz
-</div>
 <div class="row row-players">
     <div class="col-3 offset-9 text-end">
         <form [formGroup]="playersForm">
@@ -84,7 +81,7 @@
 </div>
 
 <div *ngIf="monsterList.length > 0" class="row rpgui-container framed-grey monsters-list">
-    <div *ngFor="let monster of monsterList;" class="col-md-6">
+    <div *ngFor="let monster of monsterList;" class="col-md-6" style="margin-bottom:10px;">
         <app-monster [monster]="monster"></app-monster>
     </div>
 </div>
