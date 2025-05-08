@@ -2,17 +2,19 @@
     "monstersLevel1": [
         {
             "name": "Demons",
+            "img": "/monsters/level 1/demons.png",
             "drop": 1,
             "health": 3,
-            "defense": 4,
+            "defense": 1,
             "action": "COMBAT 1 <span class=\"custom-font special\">e</span> : Attacking or defending Hero discards 1 <span class=\"custom-font mana\">c</span>"
         },
         {
             "name": "Undead",
+			"img": "/monsters/level 1/undead.png",
             "drop": 1,
             "health": 4,
-            "defense": 5,
-            "action": "Attack 1 : +1 orange dice and this Mob takes 2 Wounds"
+            "defense": 0,
+            "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font die-yellow\">s</span> and this Mob takes 2 Wounds"
         }
     ],
     "monstersLevel3": [

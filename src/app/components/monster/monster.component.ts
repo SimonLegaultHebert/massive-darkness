@@ -22,15 +22,24 @@ export class MonsterComponent implements OnInit {
   currentLife!: number;
   defenseIcons!: string;
   actionDef!: string;
+  monsterArray!: number[];
 
   constructor(private monsterService: MonsterService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
+    console.log(this.monster);
     this.createDamageForm();
     this.maxLife = (this.monster.mobs * this.monster.health) + this.monster.health;
     this.currentLife = this.maxLife;
     this.currentMobNumber = this.monster.mobs;
+
+    this.monsterArray = new Array();
+    this.monsterArray.push(this.monster.health) // leader
+    for (let i = 0; i < this.currentMobNumber; ++i) {
+      this.monsterArray.push(this.monster.health);
+    }
+
     this.defenseIcons = this.setDefenseIcons();
   }
 
@@ -41,20 +50,39 @@ export class MonsterComponent implements OnInit {
   }
 
   dealDamage() {
-    console.log(this.damageForm.get('damage')?.getRawValue())
+    this.damageDone(this.damageForm.get('damage')?.getRawValue())
+  }
+
+  damageDone(damage: number) {    
+    
+    let numberOfKill = 0;
+    for (let i = 0; i < damage; ++i) {
+      this.monsterArray[this.monsterArray.length - 1] = this.monsterArray[this.monsterArray.length - 1] - 1;
+      if (this.monsterArray[this.monsterArray.length - 1] === 0) {
+        this.monsterArray.pop();
+        numberOfKill = numberOfKill + 1;
+      }
+    }
+    
+    let isMobLeaderDead = this.monsterArray.length === 0;
+
+    if (!isMobLeaderDead && numberOfKill > 0) {
+      console.log(1 * numberOfKill);
+      this.currentMobNumber = this.currentMobNumber - numberOfKill;
+    }
+
+    if (isMobLeaderDead) {
+      console.log(1 * numberOfKill - 1);
+      console.log(2);
+      this.currentMobNumber = this.currentMobNumber - (numberOfKill - 1);
+    }
+
+
+    this.currentLife = this.currentLife - damage;
     this.damageForm.get('damage')?.setValue(0);
   }
 
-  // damageDone(currentLife: any) {
-  //   if (currentLife % this.monster.health === 0 && currentLife !== 0) {
-  //     window.alert('un mob de tuer + 1 exp');
-  //     this.currentMobNumber = this.currentMobNumber - 1;
-  //   }
-
-  //   if (currentLife === 0) {
-  //     window.alert('le mob leader est mort + 2exp pour le groupe')
-  //   }
-  // }
+ 
 
 
   addMonster() {

@@ -1,40 +1,40 @@
 <div class="rpgui-container framed-golden-2 custom-position">
   <div class="row" style="margin-bottom: 5px;">
-    <div class="col-10" style="">
+    <div class="col-10">
       <h1 style="text-align: left;">{{monster.name | uppercase}}</h1>
     </div>
     <div class="col-2 text-end" style="padding-right: 0;">
-      <button (click)="deleteMonster()">
-        <span aria-hidden="true">&times;</span>
+      <button (click)="deleteMonster()" class="btn-close btn-close-white">
+        
       </button>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4 rpgui-container framed-grey">
-      <img src="/monsters/Untitled.png" class="card-img-top" alt="..." style="height: 100%;">
+      <img [src]="monster.img" class="card-img-top" alt="..." style="height: 100%;">
     </div>
     <div class="col-md-8">
       <div class="row">
         <div class="col-6">
-          <p>Cagnotte : {{monster.drop}}</p>
+          <p>CAGNOTTE : {{monster.drop}}</p>
         </div>
         <div class="col-6 text-end">
-          <p>Sbires : {{currentMobNumber}}</p>
+          <p>SBIRES : {{currentMobNumber}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <p>Défense &nbsp;: <span class="custom-font defense">{{defenseIcons}}</span></p>
+          <p>DEFENSE &nbsp;: <span class="custom-font defense">{{defenseIcons}}</span></p>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <p>HP Total : {{currentLife}}</p>
+          <p>HP TOTAL : {{currentLife}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <p [innerHtml]="monster.action"></p>
+          <p [innerHtml]="monster.action | uppercase"></p>
         </div>
       </div>
       <div class="row" style="margin-top: 10px;">
@@ -43,13 +43,13 @@
           <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
             <div class="row">
               <div class="col-6 offset-3">
-                <label for="damage">Dommage</label>
-                <input type="number" min="0" max="{{maxLife}}" formControlName="damage" name="damage" class="text-center" style="margin-top:5px; margin-bottom: 5px;">
+                <label for="damage">DOMMAGE</label>
+                <input type="number" min="0" max="{{currentLife}}" formControlName="damage" name="damage" class="text-center" style="margin-top:5px; margin-bottom: 5px;">
               </div>
             </div>
             <div class="row">
               <div class="col-6 offset-3">
-                <button type="submit button" class="rpgui-button golden" style="width: 100%;"><p class="button-text">Appliquer</p></button>
+                <button type="submit button" class="rpgui-button golden" style="width: 100%;"><p class="button-text">ATTAQUER</p></button>
               </div>
             </div>
           </form>

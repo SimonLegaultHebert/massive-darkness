@@ -63,6 +63,7 @@ export class DashboardComponent implements OnInit {
 
     const monster = new Monster();
     monster.name = selectedMonster.name;
+    monster.img = selectedMonster.img;
     monster.defense = selectedMonster.defense;
     monster.drop = selectedMonster.drop;
     monster.health = selectedMonster.health;

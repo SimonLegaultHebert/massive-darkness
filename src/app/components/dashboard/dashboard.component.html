@@ -1,7 +1,7 @@
 <div class="row row-players">
     <div class="col-3 offset-9 text-end">
         <form [formGroup]="playersForm">
-            <label for="players">Nombre de joueurs</label>
+            <label for="players">NOMBRE DE JOUEURS</label>
             <select class="form-select" aria-label="Default select example" data-rpguitype="dropdown" formControlName="players" name="players" id="players-select">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -17,7 +17,7 @@
     <div class="col-3 offset-6">
         <div class="row">
             <div class="col-12">
-                <h6>Créer un monstre</h6>
+                <h6>AJOUTER UN MONSTRE</h6>
             </div>
         </div>
         <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="name" style="margin-bottom: 0.5rem;">
                         <div *ngFor="let monster of monstersData.monstersLevel1">
-                            <option [value]="monster.name">{{monster.name}}</option>
+                            <option [value]="monster.name">{{monster.name | uppercase}}</option>
                         </div>
                     </select>
                 </div>    
@@ -33,15 +33,15 @@
             <div class="row">
                 <div class="col-12">
                     <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="level" style="margin-bottom: 0.5rem;">
-                        <option value="1-2">Level 1-2</option>
-                        <option value="3-4">Level 3-4</option>
-                        <option value="5">Level 5</option>
+                        <option value="1-2">LEVEL I-II</option>
+                        <option value="3-4">LEVEL III-IV</option>
+                        <option value="5">LEVEL V</option>
                     </select>
                 </div>  
             </div>
             <div class="row">
                 <div class="col-6">
-                    <button type="submit button" class="rpgui-button"><span class="button-text">Créer</span></button>
+                    <button type="submit button" class="rpgui-button"><span class="button-text">AJOUTER</span></button>
                 </div>
             </div>
         </form>
@@ -49,7 +49,7 @@
     <div class="col-3">
         <div class="row">
             <div class="col-12">
-                <h6>Créer un monstre errant</h6>
+                <h6>AJOUTER UN MONSTRE ERRANT</h6>
             </div>
         </div>
         <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
@@ -57,7 +57,7 @@
                 <div class="col-12">
                     <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="name" style="margin-bottom: 0.5rem;">
                         <div *ngFor="let monster of monstersData.monstersLevel1">
-                            <option [value]="monster.name">{{monster.name}}</option>
+                            <option [value]="monster.name">{{monster.name | uppercase}}</option>
                         </div>
                     </select>
                 </div>    
@@ -65,15 +65,15 @@
             <div class="row">
                 <div class="col-12">
                     <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="level" style="margin-bottom: 0.5rem;">
-                        <option value="1-2">Level 1-2</option>
-                        <option value="3-4">Level 3-4</option>
-                        <option value="5">Level 5</option>
+                        <option value="1-2">LEVEL I-II</option>
+                        <option value="3-4">LEVEL III-IV</option>
+                        <option value="5">LEVEL V</option>
                     </select>
                 </div>  
             </div>
             <div class="row">
                 <div class="col-6">
-                    <button type="submit button" class="rpgui-button"><span class="button-text">Créer</span></button>
+                    <button type="submit button" class="rpgui-button"><span class="button-text">AJOUTER</span></button>
                 </div>
             </div>
         </form>

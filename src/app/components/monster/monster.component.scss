@@ -2,7 +2,11 @@
     position: relative;
 }
 
-.custom-font {
+.CUSTOM-FONT {
+    font-family: 'Custom', Fallback, sans-serif !important;
+}
+
+.custom-font{
     font-family: 'Custom', Fallback, sans-serif !important;
 }
 
@@ -11,11 +15,16 @@
     color: #00d0f6 !important;
 }
 
-.special {
+.DIE-YELLOW {
+    font-size: 2rem !important;
+    color: #f3c213 !important;
+}
+
+.SPECIAL {
     font-size: 2rem !important;
 }
 
-.mana {
+.MANA {
     font-size: 2rem !important;
 }
 
@@ -38,4 +47,12 @@ h1 {
 
 hr {
     height: 14px !important;
+}
+
+.btn-close {
+    padding-right: 15px;
+}
+
+img {
+    image-rendering: auto !important;
 }
