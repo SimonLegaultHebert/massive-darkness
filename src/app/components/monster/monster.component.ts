@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular
 import { MonsterService } from '../../services/monster.service';
 import { Monster } from '../../models/monster';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-monster',
@@ -15,10 +16,6 @@ export class MonsterComponent implements OnInit {
 
   @Input() monster!: Monster;
 
-  attackSoundsList = ['/sounds/slash-1.wav', '/sounds/slash-2.wav', '/sounds/slash-3.wav', '/sounds/slash-4.wav'];
-  expSoundsList = ['/sounds/level-1.wav', '/sounds/level-2.wav'];
-  leaderDefeatedSoundsList = ['level-3.wav'];
-
   damageForm!: FormGroup;
   maxLife!: number;
   currentMobNumber!: number;
@@ -26,22 +23,14 @@ export class MonsterComponent implements OnInit {
   defenseIcons!: string;
   actionDef!: string;
   monsterArray!: number[];
-  showExpModal: boolean = true;
 
-  constructor(private monsterService: MonsterService, private formBuilder: FormBuilder) {
+  constructor(
+    private monsterService: MonsterService, 
+    private formBuilder: FormBuilder,
+    private soundService: SoundService) {
   }
 
   ngOnInit(): void {
-    // var elem = document.getElementsByTagName('body');
-    // console.log(elem)
-    // elem[0].style.opacity = '0.5';
-
-
-    // var elem1 = document.getElementById('exampleModalLive');
-    // if (elem1) {
-    //   elem1.style.opacity = '1';
-    // }
-
 
     this.createDamageForm();
     this.maxLife = (this.monster.mobs * this.monster.health) + this.monster.health;
@@ -64,12 +53,13 @@ export class MonsterComponent implements OnInit {
   }
 
   dealDamage() {
+    this.soundService.triggerAttackSound();
     if (this.damageForm.valid) {
       const damageDone = this.damageForm.get('damage')?.getRawValue();
       if (damageDone === this.maxLife) {
-        this.playUltimateAttackSound();
+        //this.playUltimateAttackSound();
       } else {
-        this.playRandomSoundFromList(this.attackSoundsList);
+        //this.playRandomSoundFromList(this.attackSoundsList);
       }
 
       this.damageDone(damageDone)
@@ -89,35 +79,15 @@ export class MonsterComponent implements OnInit {
     let isMobLeaderDead = this.monsterArray.length === 0;
 
     if (!isMobLeaderDead && numberOfKill > 0) {
-      this.showExpModal1();
       this.currentMobNumber = this.currentMobNumber - numberOfKill;
     }
 
     if (isMobLeaderDead) {
-      this.showExpModal2();
       this.currentMobNumber = this.currentMobNumber - (numberOfKill - 1);
     }
 
     this.currentLife = this.currentLife - damage;
     this.damageForm.get('damage')?.setValue(0);
-  }
-
-  private showExpModal1() {
-    setTimeout(() => {
-      this.playRandomSoundFromList(this.expSoundsList)
-      this.showExpModal = true;
-    }, 1000);
-  }
-
-  private showExpModal2() {
-    setTimeout(() => {
-      this.playLeaderDefeaterSound()
-      this.showExpModal = true;
-    }, 1000);
-  }
-
-  close() {
-    this.showExpModal = false;
   }
 
 
@@ -126,6 +96,7 @@ export class MonsterComponent implements OnInit {
   }
 
   deleteMonster() {
+    this.soundService.triggerClickSound();
     this.monsterService.deleteMonster(this.monster.id);
   }
 
@@ -137,31 +108,8 @@ export class MonsterComponent implements OnInit {
     return defenseIcon;
   }
 
-  private playRandomSoundFromList(list: string[]) {
-    let audio = new Audio();
-    audio.src = list[Math.floor(Math.random() * list.length)];
-    audio.load();
-    audio.play();
-  }
-
-  private playUltimateAttackSound() {
-    let audio = new Audio();
-    audio.src = '/sounds/gun-reload.wav';
-    audio.load();
-    audio.play();
-
-    setTimeout(() => {
-      audio.src = '/sounds/gun-shot.wav';
-      audio.load();
-      audio.play();
-    }, 800);
-  }
-
-  private playLeaderDefeaterSound() {
-    let audio = new Audio();
-    audio.src = '/sounds/level-3.wav';
-    audio.load();
-    audio.play();
+  onDamageChange() {
+    this.soundService.triggerClickSound();
   }
 
 }

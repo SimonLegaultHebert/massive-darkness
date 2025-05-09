@@ -1,11 +1,13 @@
 .form-darkness-1 {
     background-image: url("/darkness-1.png");
     background-size: cover;
+    image-rendering: auto !important;
 }
 
 .form-darkness-2 {
     background-image: url("/darkness-2.png");
     background-size: cover;
+    image-rendering: auto !important;
 }
 
 input {

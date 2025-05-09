@@ -45,7 +45,7 @@
               <div class="col-6 offset-3">
                 <label for="damage">DOMMAGE</label>
                 <input type="number" min="0" max="{{currentLife}}" formControlName="damage" name="damage"
-                  class="text-center rpgui-cursor-point" style="margin-top:5px; margin-bottom: 5px;">
+                  class="text-center rpgui-cursor-point" style="margin-top:5px; margin-bottom: 5px;" (change)="onDamageChange()">
               </div>
             </div>
             <div class="row">
@@ -61,22 +61,3 @@
     </div>
   </div>
 </div>
-
-<div id="exampleModalLive" class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel"
-  style="display: block; padding-right: 15px;" *ngIf="showExpModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="padding-top: 10px;">
-        <h2 class="modal-title" id="exampleModalLiveLabel">PAR ICI LA MONNAIE!</h2>
-        <button type="button" class="btn-close btn-close-white close-modal rpgui-cursor-point" data-dismiss="modal"
-          aria-label="Close" (click)="close()"></button>
-      </div>
-      <div class="modal-body" style="padding-top: 30px">
-        <p>LE HERO GAGNE 1 EXP</p>
-        <p>Le héro ramasse cette cagnotte</p>
-        <p>Le groupe gagne 2 exp</p>
-      </div>
-    </div>
-  </div>
-</div>
-
