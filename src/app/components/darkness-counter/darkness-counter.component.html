@@ -1,0 +1,25 @@
+<div class="row" style="height: 50%;">
+    <div class="col-10" style="height: 100%;">
+        <form [formGroup]="firstDarknessForm" class="row form-darkness-1 " style="height: 100%;">
+            <input type="radio" value="1" formControlName="level" class="col darkness-1 rpgui-cursor-default" style="margin-left: 22px" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="2" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="3" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="4" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="5" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="6" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="7" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="8" formControlName="level" class="col darkness-1 rpgui-cursor-default" (change)="radioChangeFirstDarkness()">
+            <input type="radio" value="9" formControlName="level" class="col darkness-1 rpgui-cursor-default" style="margin-right: 54px;" (change)="radioChangeFirstDarkness()">
+        </form>
+    </div>
+</div>
+<div class="row" style="height: 50%; margin-top:10px; padding-bottom: 10px;">
+    <div class="col-5" style="height: 100%;" id="allo">
+        <form [formGroup]="secondDarknessForm" class="row form-darkness-2" style="height: 100%;">
+            <input type="radio" value="1" formControlName="level" class="col darkness-2 rpgui-cursor-default" style="margin-left: 47px" (change)="radioChangeSecondDarkness()">
+            <input type="radio" value="2" formControlName="level" class="col darkness-2 rpgui-cursor-default" (change)="radioChangeSecondDarkness()">
+            <input type="radio" value="3" formControlName="level" class="col darkness-2 rpgui-cursor-default" (change)="radioChangeSecondDarkness()">
+            <input type="radio" value="4" formControlName="level" class="col darkness-2 rpgui-cursor-default" style="margin-right: 38px;"(change)="radioChangeSecondDarkness()">
+        </form>
+    </div>
+</div>

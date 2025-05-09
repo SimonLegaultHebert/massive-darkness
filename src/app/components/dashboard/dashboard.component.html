@@ -1,84 +1,101 @@
-<div class="row row-players">
-    <div class="col-3 offset-9 text-end">
-        <form [formGroup]="playersForm">
-            <label for="players">NOMBRE DE JOUEURS</label>
-            <select class="form-select" aria-label="Default select example" data-rpguitype="dropdown" formControlName="players" name="players" id="players-select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
-        </form>
-    </div>
-</div>
 <div class="row">
-    <div class="col-3 offset-6">
-        <div class="row">
-            <div class="col-12">
-                <h6>AJOUTER UN MONSTRE</h6>
-            </div>
-        </div>
-        <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
-            <div class="row">
-                <div class="col-12">
-                    <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="name" style="margin-bottom: 0.5rem;">
-                        <div *ngFor="let monster of monstersData.monstersLevel1">
-                            <option [value]="monster.name">{{monster.name | uppercase}}</option>
-                        </div>
-                    </select>
-                </div>    
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="level" style="margin-bottom: 0.5rem;">
-                        <option value="1-2">LEVEL I-II</option>
-                        <option value="3-4">LEVEL III-IV</option>
-                        <option value="5">LEVEL V</option>
-                    </select>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <button type="submit button" class="rpgui-button"><span class="button-text">AJOUTER</span></button>
-                </div>
-            </div>
-        </form>
+    <div class="col-6" style="padding-left: 30px;">
+        <app-darkness-counter></app-darkness-counter>
     </div>
-    <div class="col-3">
-        <div class="row">
-            <div class="col-12">
-                <h6>AJOUTER UN MONSTRE ERRANT</h6>
+    <div class="col-6">
+        <div class="row row-players">
+            <div class="col-4 offset-8 text-end">
+                <form [formGroup]="playersForm">
+                    <label for="players">NOMBRE DE JOUEURS</label>
+                    <select class="form-select" aria-label="Default select example" data-rpguitype="dropdown"
+                        formControlName="players" name="players" id="players-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </form>
             </div>
         </div>
-        <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
-            <div class="row">
-                <div class="col-12">
-                    <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="name" style="margin-bottom: 0.5rem;">
-                        <div *ngFor="let monster of monstersData.monstersLevel1">
-                            <option [value]="monster.name">{{monster.name | uppercase}}</option>
-                        </div>
-                    </select>
-                </div>    
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <select class="form-select rpgui-cursor-default" aria-label="Default select example" formControlName="level" style="margin-bottom: 0.5rem;">
-                        <option value="1-2">LEVEL I-II</option>
-                        <option value="3-4">LEVEL III-IV</option>
-                        <option value="5">LEVEL V</option>
-                    </select>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <button type="submit button" class="rpgui-button"><span class="button-text">AJOUTER</span></button>
+        <div class="row">
+            <div class="col-5 offset-2">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 id="test123123">AJOUTER UN MONSTRE</h6>
+                    </div>
                 </div>
+                <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
+                    <div class="row">
+                        <div class="col-12">
+                            <select class="form-select rpgui-cursor-default" aria-label="Default select example"
+                                formControlName="name" style="margin-bottom: 0.5rem;">
+                                <div *ngFor="let monster of selectedMonsterList">
+                                    <option [value]="monster.name">{{monster.name | uppercase}}</option>
+                                </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <select class="form-select rpgui-cursor-default" aria-label="Default select example"
+                                formControlName="level" style="margin-bottom: 0.5rem;"
+                                (change)="onMonsterLevelChange()">
+                                <option value="1-2">LEVEL I-II</option>
+                                <option value="3-4">LEVEL III-IV</option>
+                                <option value="5">LEVEL V</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit button" class="rpgui-button"><span
+                                    class="button-text">AJOUTER</span></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h6>AJOUTER UN MONSTRE ERRANT</h6>
+                    </div>
+                </div>
+                <form [formGroup]="roamingMonsterForm" (ngSubmit)="submitRoamingMonster()">
+                    <div class="row">
+                        <div class="col-12">
+                            <select class="form-select rpgui-cursor-default" aria-label="Default select example"
+                                formControlName="name" style="margin-bottom: 0.5rem;"
+                                (change)="onRoamingMonsterLevelChange()">
+                                <div *ngFor="let monster of selectedRoamingMonsterList">
+                                    <option [value]="monster.name">{{monster.name | uppercase}}</option>
+                                </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <select class="form-select rpgui-cursor-default" aria-label="Default select example"
+                                formControlName="level" style="margin-bottom: 0.5rem;">
+                                <option value="1-2">LEVEL I-II</option>
+                                <option value="3-4">LEVEL III-IV</option>
+                                <option value="5">LEVEL V</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit button" class="rpgui-button"><span
+                                    class="button-text">AJOUTER</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <div *ngIf="monsterList.length > 0" class="row rpgui-container framed-grey monsters-list">
     <div *ngFor="let monster of monsterList;" class="col-md-6" style="margin-bottom:10px;">

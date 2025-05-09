@@ -24,13 +24,6 @@
             "health": 3,
             "defense": 5,
             "action": "Combat 1 : Attacking or defending Hero discards 1 mana"
-        },
-        {
-            "name": "Undead",
-            "drop": 1,
-            "health": 4,
-            "defense": 0,
-            "action": "Attack 1 : +1 orange dice and this Mob takes 2 Wounds"
         }
     ],
     "monstersLevel5": [
@@ -49,5 +42,7 @@
             "action": "Attack 1 : +1 orange dice and this Mob takes 2 Wounds"
         }
     ],
-    "roamingMonster": []
+    "roamingMonsterLevel1": [],
+	"roamingMonsterLevel3": [],
+	"roamingMonsterLevel5": []
 }

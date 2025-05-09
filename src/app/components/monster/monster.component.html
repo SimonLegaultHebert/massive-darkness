@@ -5,7 +5,7 @@
     </div>
     <div class="col-2 text-end" style="padding-right: 0;">
       <button (click)="deleteMonster()" class="btn-close btn-close-white">
-        
+
       </button>
     </div>
   </div>
@@ -44,12 +44,15 @@
             <div class="row">
               <div class="col-6 offset-3">
                 <label for="damage">DOMMAGE</label>
-                <input type="number" min="0" max="{{currentLife}}" formControlName="damage" name="damage" class="text-center rpgui-cursor-point" style="margin-top:5px; margin-bottom: 5px;">
+                <input type="number" min="0" max="{{currentLife}}" formControlName="damage" name="damage"
+                  class="text-center rpgui-cursor-point" style="margin-top:5px; margin-bottom: 5px;">
               </div>
             </div>
             <div class="row">
               <div class="col-6 offset-3">
-                <button type="submit button" class="rpgui-button golden" style="width: 100%;"><p class="button-text">ATTAQUER</p></button>
+                <button type="submit button" class="rpgui-button golden" style="width: 100%;">
+                  <p class="button-text">ATTAQUER</p>
+                </button>
               </div>
             </div>
           </form>
@@ -59,18 +62,21 @@
   </div>
 </div>
 
-<div id="exampleModalLive" class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 15px;" *ngIf="showExpModal">
+<div id="exampleModalLive" class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel"
+  style="display: block; padding-right: 15px;" *ngIf="showExpModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLiveLabel">PAR ICI LA MONNAIE!</h5>
-        <button type="button" class="btn-close btn-close-white close-modal rpgui-cursor-point" data-dismiss="modal" aria-label="Close" (click)="close()">
-          <span aria-hidden="true">×</span>
-        </button>
+      <div class="modal-header" style="padding-top: 10px;">
+        <h2 class="modal-title" id="exampleModalLiveLabel">PAR ICI LA MONNAIE!</h2>
+        <button type="button" class="btn-close btn-close-white close-modal rpgui-cursor-point" data-dismiss="modal"
+          aria-label="Close" (click)="close()"></button>
       </div>
-      <div class="modal-body">
-        <span>Woohoo, you're reading this text in a modal!</span>
+      <div class="modal-body" style="padding-top: 30px">
+        <p>LE HERO GAGNE 1 EXP</p>
+        <p>Le héro ramasse cette cagnotte</p>
+        <p>Le groupe gagne 2 exp</p>
       </div>
     </div>
   </div>
 </div>
+

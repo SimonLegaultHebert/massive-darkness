@@ -45,7 +45,8 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "public/rpgui/rpgui.js"
+              "public/rpgui/rpgui.js",
+              "node_modules/jquery/dist/jquery.js"
             ]
           },
           "configurations": {

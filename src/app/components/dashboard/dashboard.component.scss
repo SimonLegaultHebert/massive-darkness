@@ -39,3 +39,14 @@ select option:hover {
     margin-left: .25rem;
     margin-right: .25rem;
 }
+
+img {
+    image-rendering: auto !important;
+    width: 100%;
+}
+
+.test-image {
+    background-image: url("/darkness-1.png");
+    background-size: cover;
+    image-rendering: auto !important;
+}

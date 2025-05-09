@@ -45,6 +45,10 @@ h1 {
     margin-bottom: 7px !important;
 }
 
+h2 {
+    font-size: large !important;
+}
+
 hr {
     height: 14px !important;
 }
@@ -72,4 +76,10 @@ img {
 
  .close-modal {
     cursor: 0 0 10px 100px #1882A8 inset !important;
+}
+
+.modal-content {
+    border-color: #222222;
+    border-width: medium;
+    background-color: #0960a4;
 }

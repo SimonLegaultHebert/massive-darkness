@@ -32,6 +32,17 @@ export class MonsterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // var elem = document.getElementsByTagName('body');
+    // console.log(elem)
+    // elem[0].style.opacity = '0.5';
+
+
+    // var elem1 = document.getElementById('exampleModalLive');
+    // if (elem1) {
+    //   elem1.style.opacity = '1';
+    // }
+
+
     this.createDamageForm();
     this.maxLife = (this.monster.mobs * this.monster.health) + this.monster.health;
     this.currentLife = this.maxLife;
@@ -48,19 +59,21 @@ export class MonsterComponent implements OnInit {
 
   private createDamageForm() {
     this.damageForm = this.formBuilder.group({
-      damage: [0, Validators.required],
+      damage: [0, [Validators.required, Validators.max(this.maxLife)]],
     })
   }
 
   dealDamage() {
-    const damageDone = this.damageForm.get('damage')?.getRawValue();
-    if (damageDone === this.maxLife) {
-      this.playUltimateAttackSound();
-    } else {
-      this.playRandomSoundFromList(this.attackSoundsList);
-    }
+    if (this.damageForm.valid) {
+      const damageDone = this.damageForm.get('damage')?.getRawValue();
+      if (damageDone === this.maxLife) {
+        this.playUltimateAttackSound();
+      } else {
+        this.playRandomSoundFromList(this.attackSoundsList);
+      }
 
-    this.damageDone(damageDone)
+      this.damageDone(damageDone)
+    }
   }
 
   damageDone(damage: number) {
@@ -141,10 +154,6 @@ export class MonsterComponent implements OnInit {
       audio.src = '/sounds/gun-shot.wav';
       audio.load();
       audio.play();
-    }, 800);
-
-    setTimeout(() => {
-
     }, 800);
   }
 
