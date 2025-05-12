@@ -45,34 +45,63 @@ export class DarknessCounterComponent implements OnInit {
 
   private actionOnFirstDarknessLevel() {
     const level = this.firstDarknessForm.get('level')?.getRawValue();
+    let text = '';
 
     switch (level) {
       case '3': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un monstre errant dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
       case '4': {
+        this.modalService.changeTitle('Par ici la monnaie!')
+        text = `<p>Ajoutez un trésor rare dans la pochette à butin.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerLootSound();
         break;
       }
       case '5': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un groupe de monstres dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
       case '6': {
+        this.modalService.changeTitle('Par ici la monnaie!')
+        text = `<p>Ajoutez un trésor épique dans la pochette à butins.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerLootSound();
         break;
       }
       case '7': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un groupe de monstres dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
       case '8': {
+        this.modalService.changeTitle('Par ici la monnaie!')
+        text = `<p>Ajoutez un trésor épique dans la pochette à butins.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerLootSound();
         break;
       }
       case '9': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un monstre errant dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
     }
@@ -85,14 +114,23 @@ export class DarknessCounterComponent implements OnInit {
 
   private actionOnSecondDarknessLevel() {
     const level = this.secondDarknessForm.get('level')?.getRawValue();
+    let text = '';
 
     switch (level) {
       case '2': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un groupe de monstres dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
       case '4': {
+        this.modalService.changeTitle('Oh-Oh, Spaghetti-O\'s!')
+        text = `<p>Ajoutez un monstre errant dans l'aventure.</p>`;
+        this.modalService.changeText(text);
         this.modalService.show();
+        this.soundService.triggerMonsterSound();
         break;
       }
     }

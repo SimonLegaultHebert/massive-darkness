@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class SoundService {
 
   private attackSoundsList = ['/sounds/slash-1.wav', '/sounds/slash-2.wav', '/sounds/slash-3.wav', '/sounds/slash-4.wav'];
+  private lootSoundsList = ['/sounds/loot-1.wav', '/sounds/loot-2.wav', '/sounds/loot-3.wav', '/sounds/loot-4.wav'];
+  private monsterSoundList = ['/sounds/monster-1.wav', '/sounds/monster-2.wav', '/sounds/monster-3.wav', '/sounds/monster-4.wav', '/sounds/monster-5.wav'];
   private expSoundsList = ['/sounds/level-1.wav', '/sounds/level-2.wav'];
   private leaderDefeatedSoundsList = ['level-3.wav'];
   private clickSound = '/sounds/click.wav';
@@ -22,6 +24,20 @@ export class SoundService {
   triggerAttackSound() {
     let audio = new Audio();
     audio.src = this.attackSoundsList[Math.floor(Math.random() * this.attackSoundsList.length)];
+    audio.load();
+    audio.play();
+  }
+
+  triggerLootSound() {
+    let audio = new Audio();
+    audio.src = this.lootSoundsList[Math.floor(Math.random() * this.lootSoundsList.length)];
+    audio.load();
+    audio.play();
+  }
+
+  triggerMonsterSound() {
+    let audio = new Audio();
+    audio.src = this.monsterSoundList[Math.floor(Math.random() * this.monsterSoundList.length)];
     audio.load();
     audio.play();
   }

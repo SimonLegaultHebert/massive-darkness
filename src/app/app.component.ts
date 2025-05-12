@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'massive-darkness';
+
+  constructor() {
+    // setTimeout(() => {
+    //   window.open('https://www.youtube.com/watch?v=FpYNs-EfJjI&t=20986s', '_blank');
+    // }, 2000);
+  }
 }
+
