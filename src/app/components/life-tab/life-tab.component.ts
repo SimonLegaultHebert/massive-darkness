@@ -45,8 +45,6 @@ export class LifeTabComponent implements OnInit {
   dealDamage() {
     if (this.damageForm.valid) {
       const damageDone = this.damageForm.get('damage')?.getRawValue();
-      console.log(damageDone)
-      console.log(this.maxLife)
       if (damageDone === this.maxLife) {
         this.soundService.triggerUltimateAttackSound();
         this.isUltimateAttack = true;

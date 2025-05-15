@@ -31,6 +31,7 @@ export class MonsterComponent implements OnInit {
   }
 
   dealDamage() {
+    this.soundService.triggerClickSound();
     this.monsterService.$currentMonster.next(this.monster);
     this.lifeTabService.show();
   }
