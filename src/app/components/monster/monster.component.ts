@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MonsterService } from '../../services/monster.service';
 import { Monster } from '../../models/monster';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SoundService } from '../../services/sound.service';
+import { LifeTabService } from '../../services/life-tab.service';
 
 @Component({
   selector: 'app-monster',
@@ -17,7 +18,6 @@ export class MonsterComponent implements OnInit {
   @Input() monster!: Monster;
 
   damageForm!: FormGroup;
-  maxLife!: number;
   currentMobNumber!: number;
   currentLife!: number;
   defenseIcons!: string;
@@ -25,74 +25,27 @@ export class MonsterComponent implements OnInit {
   monsterArray!: number[];
 
   constructor(
-    private monsterService: MonsterService, 
+    private monsterService: MonsterService,
     private formBuilder: FormBuilder,
-    private soundService: SoundService) {
+    private soundService: SoundService,
+    private lifeTabService: LifeTabService) {
   }
 
   ngOnInit(): void {
-
-    this.createDamageForm();
-    this.maxLife = (this.monster.mobs * this.monster.health) + this.monster.health;
-    this.currentLife = this.maxLife;
-    this.currentMobNumber = this.monster.mobs;
-
-    this.monsterArray = new Array();
-    this.monsterArray.push(this.monster.health) // leader
-    for (let i = 0; i < this.currentMobNumber; ++i) {
-      this.monsterArray.push(this.monster.health);
-    }
-
+    this.createDamageForm()
     this.defenseIcons = this.setDefenseIcons();
   }
 
   private createDamageForm() {
     this.damageForm = this.formBuilder.group({
-      damage: [0, [Validators.required, Validators.max(this.maxLife)]],
+      damage: [0, [Validators.required, Validators.max(12)]],
     })
   }
 
   dealDamage() {
+    this.monsterService.$currentMonster.next(this.monster);
+    this.lifeTabService.show();
     this.soundService.triggerAttackSound();
-    if (this.damageForm.valid) {
-      const damageDone = this.damageForm.get('damage')?.getRawValue();
-      if (damageDone === this.maxLife) {
-        //this.playUltimateAttackSound();
-      } else {
-        //this.playRandomSoundFromList(this.attackSoundsList);
-      }
-
-      this.damageDone(damageDone)
-    }
-  }
-
-  damageDone(damage: number) {
-    let numberOfKill = 0;
-    for (let i = 0; i < damage; ++i) {
-      this.monsterArray[this.monsterArray.length - 1] = this.monsterArray[this.monsterArray.length - 1] - 1;
-      if (this.monsterArray[this.monsterArray.length - 1] === 0) {
-        this.monsterArray.pop();
-        numberOfKill = numberOfKill + 1;
-      }
-    }
-
-    let isMobLeaderDead = this.monsterArray.length === 0;
-
-    if (!isMobLeaderDead && numberOfKill > 0) {
-      this.currentMobNumber = this.currentMobNumber - numberOfKill;
-    }
-
-    if (isMobLeaderDead) {
-      this.currentMobNumber = this.currentMobNumber - (numberOfKill - 1);
-    }
-
-    this.currentLife = this.currentLife - damage;
-    this.damageForm.get('damage')?.setValue(0);
-  }
-
-
-  addMonster() {
-
   }
 
   deleteMonster() {

@@ -7,6 +7,8 @@ import { MonsterComponent } from './components/monster/monster.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { DarknessCounterComponent } from './components/darkness-counter/darkness-counter.component';
+import { LifeTabComponent } from './components/life-tab/life-tab.component';
+import { LifeBarComponent } from './components/life-bar/life-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DarknessCounterComponent } from './components/darkness-counter/darkness
     MonsterComponent,
     DashboardComponent,
     ModalComponent,
-    DarknessCounterComponent
+    DarknessCounterComponent,
+    LifeTabComponent,
+    LifeBarComponent
   ],
   imports: [
     BrowserModule,

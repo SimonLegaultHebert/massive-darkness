@@ -1,0 +1,36 @@
+<div class="modal fade" id="lifeTabBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="lifeTabBackdrop" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{killLog}}
+                <div *ngFor="let mob of currentMonster.mobs; let i = index">
+                    {{mob | json}}
+                    <app-life-bar [maxLife]="mob.maxLife" [currentLife]="mob.currentLife"></app-life-bar>
+                </div>
+                <div class="modal-footer">
+                    <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <label for="damage">DOMMAGE</label>
+                                <input type="number" min="0" max="{{maxLife}}" formControlName="damage"
+                                    name="damage" class="text-center rpgui-cursor-point"
+                                    style="margin-top:5px; margin-bottom: 5px;" (change)="onDamageChange()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <button type="submit button" class="rpgui-button golden" style="width: 100%;">
+                                    <p class="button-text">ATTAQUER</p>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

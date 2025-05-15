@@ -10,8 +10,6 @@ import { ModalService } from '../../services/modal.service';
   styleUrl: './darkness-counter.component.scss'
 })
 export class DarknessCounterComponent implements OnInit {
-
-  @ViewChild('staticBackdrop') modalRef = {} as ElementRef;
   
   constructor(
     private formBuilder: FormBuilder,

@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as monstersData from '../../../../public/monsters/monsters.json'
 import { Monster } from '../../models/monster';
 import { SoundService } from '../../services/sound.service';
+import { LifeTabService } from '../../services/life-tab.service';
+import { Mob } from '../../models/mob';
 
 @Component({
   selector: 'app-dashboard',
@@ -106,9 +108,28 @@ export class DashboardComponent implements OnInit {
     monster.health = selectedMonster.health;
     monster.action = selectedMonster.action;
     monster.id = crypto.randomUUID()
-    monster.mobs = this.playersForm.get('players')?.getRawValue();
+    monster.mobs = this.createMobsArray(selectedMonster);
+    monster.mobsNumber = monster.mobs.length - 1;
+    monster.lastMobIndex = monster.mobs.length - 1;
+    monster.currentHealth = monster.mobs.length * monster.health;
 
     this.monsterService.addMonster(monster);
+  }
+
+  private createMobsArray(selectedMonster: Monster): Mob[] {
+    let mobs = new Array();
+    for (var i = 0; i < this.playersForm.get('players')?.getRawValue(); ++i) {
+      mobs.push(this.createMobFromSelectedMonster(selectedMonster));
+    }
+    mobs.push(this.createMobFromSelectedMonster(selectedMonster));
+    return mobs;
+  }
+
+  private createMobFromSelectedMonster(selectedMonster: Monster) {
+    let mob = new Mob();
+    mob.currentLife = selectedMonster.health;
+    mob.maxLife = selectedMonster.health;
+    return mob;
   }
 
   private createRoamingMonster() {

@@ -8,6 +8,7 @@ import { Monster } from '../models/monster';
 export class MonsterService {
 
   $monsterList = new BehaviorSubject<Monster[]>([]);
+  $currentMonster = new BehaviorSubject<any>(null);
 
   constructor() { }
 
@@ -21,6 +22,14 @@ export class MonsterService {
     const currentList = this.$monsterList.getValue();
     currentList.push(monster);
     this.$monsterList.next(currentList);
+  }
+
+  updateMonster(id: string, updatedMonster: Monster) {
+    let monsterList = this.$monsterList.getValue();
+    console.log(monsterList)
+    const index = monsterList.findIndex((obj: any) => obj.id === id);
+    monsterList[index] = updatedMonster;
+    this.$monsterList.next(monsterList);
   }
 
   private removeObjectWithId(arr: any, id: any) {
