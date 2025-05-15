@@ -10,6 +10,7 @@ export class LifeBarComponent implements OnInit, OnChanges {
 
   @Input() maxLife!: number;
   @Input() currentLife!: number;
+  @Input() index!: any;
 
   calculatedWidth!: number
 

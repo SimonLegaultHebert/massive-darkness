@@ -17,6 +17,7 @@ export class LifeTabComponent implements OnInit {
   maxLife!: number;
   lastMobIndex!: number;
   killLog!: string;
+  isUltimateAttack: boolean = false;
 
   constructor(
     private monsterService: MonsterService,
@@ -31,25 +32,27 @@ export class LifeTabComponent implements OnInit {
       this.maxLife = (this.currentMonster.mobs.length * this.currentMonster.health);
       this.createDamageForm();
       this.lastMobIndex = this.currentMonster.lastMobIndex;
+      this.killLog = '';
     });
   }
 
   private createDamageForm() {
     this.damageForm = this.formBuilder.group({
-      damage: [0, [Validators.required, Validators.max(this.maxLife)]],
+      damage: [0, [Validators.required, Validators.max(this.currentMonster.currentHealth)]],
     })
   }
 
   dealDamage() {
     if (this.damageForm.valid) {
-      this.soundService.triggerAttackSound();
       const damageDone = this.damageForm.get('damage')?.getRawValue();
+      console.log(damageDone)
+      console.log(this.maxLife)
       if (damageDone === this.maxLife) {
-        //this.playUltimateAttackSound();
+        this.soundService.triggerUltimateAttackSound();
+        this.isUltimateAttack = true;
       } else {
-        //this.playRandomSoundFromList(this.attackSoundsList);
+        this.soundService.triggerAttackSound();
       }
-
       this.damageDone(damageDone)
     }
   }
@@ -74,7 +77,7 @@ export class LifeTabComponent implements OnInit {
     }
 
     this.killLog = this.generateKillLog(numberOfKill, isLeaderDead)
-    this.maxLife = this.maxLife - damage;
+    this.isUltimateAttack = false;
     this.saveMonsterChanges();
     this.damageForm.get('damage')?.setValue(0);
   }
@@ -85,7 +88,22 @@ export class LifeTabComponent implements OnInit {
       if (isLeaderDead) {
         exp = exp + 2;
       }
-      return 'TODO AJUSTER MESSAGE :' + exp
+
+      if (isLeaderDead) {
+        let timeout = 300;
+        if (this.isUltimateAttack) {
+          timeout = 1000;
+        }
+        setTimeout(() => {
+           this.soundService.triggerLeaderKillSound();
+        }, timeout)
+        return `<p>Le héro gagne ${exp} d'expérience et le reste des boulets reçoit 2 d'expérience!</p><p>Empochez cette cagnote!</p>`;
+      } else {
+        setTimeout(() => {
+          this.soundService.triggerMobKillSound();
+        }, 300)
+        return `<p>Le héro gagne ${exp} d'expérience.</p>`;
+      }
     }
     return ''
   }
@@ -116,16 +134,8 @@ export class LifeTabComponent implements OnInit {
   }
 
   onDamageChange() {
+    this.killLog = '';
     this.soundService.triggerClickSound();
   }
 
-
-  damageUp() {
-    this.currentMonster.mobs.pop();
-  }
-
-  damageDown() {
-    this.currentMonster.mobs = [];
-    // this.mobsArray.pop();
-  }
 }

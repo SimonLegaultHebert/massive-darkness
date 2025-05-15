@@ -3,34 +3,43 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5"></h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5">Brasse camarade</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="margin-bottom: 15px;"></button>
             </div>
             <div class="modal-body">
-                {{killLog}}
-                <div *ngFor="let mob of currentMonster.mobs; let i = index">
-                    {{mob | json}}
-                    <app-life-bar [maxLife]="mob.maxLife" [currentLife]="mob.currentLife"></app-life-bar>
+                <div class="row">
+                    <div class="col kill-log" [innerHtml]="killLog"></div>
                 </div>
-                <div class="modal-footer">
-                    <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
-                        <div class="row">
-                            <div class="col-6 offset-3">
-                                <label for="damage">DOMMAGE</label>
-                                <input type="number" min="0" max="{{maxLife}}" formControlName="damage"
-                                    name="damage" class="text-center rpgui-cursor-point"
-                                    style="margin-top:5px; margin-bottom: 5px;" (change)="onDamageChange()">
-                            </div>
+
+                <div *ngFor="let mob of currentMonster.mobs; let i = index" class="row" style="padding-bottom: 10px; height: 45px;">
+                    <app-life-bar [maxLife]="mob.maxLife" [currentLife]="mob.currentLife" [index]="i"
+                        class="col"></app-life-bar>
+                </div>
+
+
+                <div class="modal-footer" style="padding-bottom:0px; margin-top:10px;">
+                    <div class="row" style="width: 100%;">
+                        <div class="col">
+                            <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
+                                <div class="row">
+                                    <div class="col" style="text-align: center;">
+                                        <input type="number" min="0" max="{{currentMonster.currentHealth}}" formControlName="damage"
+                                            name="damage" class="text-center rpgui-cursor-point"
+                                            style="width: 50%;" (change)="onDamageChange()">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col" style="text-align: center;">
+                                        <button type="submit button" class="rpgui-button golden" style="width: 50%;">
+                                            <p class="button-text">ATTAQUER</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="row">
-                            <div class="col-6 offset-3">
-                                <button type="submit button" class="rpgui-button golden" style="width: 100%;">
-                                    <p class="button-text">ATTAQUER</p>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

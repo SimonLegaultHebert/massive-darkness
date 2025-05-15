@@ -15,6 +15,11 @@
     color: #00d0f6 !important;
 }
 
+.attack {
+    font-size: 3.5rem !important;
+    color: #4e4a4e !important;
+}
+
 .DIE-YELLOW {
     font-size: 2rem !important;
     color: #f3c213 !important;
@@ -66,4 +71,8 @@ img {
   left: 50%;
   top: 70%;
   transform: translate(-50%, -50%);
+ }
+
+ .dead {
+    opacity: 0.5;
  }

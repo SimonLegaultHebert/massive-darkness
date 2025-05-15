@@ -26,7 +26,7 @@ export class DarknessCounterComponent implements OnInit {
 
   private createfirstDarknessForm() {
     this.firstDarknessForm = this.formBuilder.group({
-      level: ['', Validators.required],
+      level: ['1', Validators.required],
     })
   }
 

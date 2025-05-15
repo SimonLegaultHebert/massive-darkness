@@ -1,12 +1,10 @@
-<div class="rpgui-container framed-golden-2 custom-position">
+<div class="rpgui-container framed-golden-2 custom-position" [ngClass]="{'dead': monster.currentHealth === 0}">
   <div class="row" style="margin-bottom: 5px;">
     <div class="col-10">
       <h1 style="text-align: left;">{{monster.name | uppercase}}</h1>
     </div>
     <div class="col-2 text-end" style="padding-right: 0;">
-      <button (click)="deleteMonster()" class="btn-close btn-close-white">
-
-      </button>
+      <button (click)="deleteMonster()" class="btn-close btn-close-white"></button>
     </div>
   </div>
   <div class="row">
@@ -39,23 +37,8 @@
       </div>
       <div class="row" style="margin-top: 10px;">
         <hr>
-        <div class="col">
-          <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
-            <div class="row">
-              <div class="col-6 offset-3">
-                <label for="damage">DOMMAGE</label>
-                <input type="number" min="0" max="{{currentLife}}" formControlName="damage" name="damage"
-                  class="text-center rpgui-cursor-point" style="margin-top:5px; margin-bottom: 5px;" (change)="onDamageChange()">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6 offset-3">
-                <button type="submit button" class="rpgui-button golden" style="width: 100%;">
-                  <p class="button-text">ATTAQUER</p>
-                </button>
-              </div>
-            </div>
-          </form>
+        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 110px; padding-right: 25px;">
+            <p (click)="dealDamage()"><span class="custom-font attack rpgui-cursor-point">a</span></p>
         </div>
       </div>
     </div>

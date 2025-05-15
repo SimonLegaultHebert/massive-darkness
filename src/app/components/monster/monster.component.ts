@@ -18,34 +18,21 @@ export class MonsterComponent implements OnInit {
   @Input() monster!: Monster;
 
   damageForm!: FormGroup;
-  currentMobNumber!: number;
-  currentLife!: number;
   defenseIcons!: string;
-  actionDef!: string;
-  monsterArray!: number[];
 
   constructor(
     private monsterService: MonsterService,
-    private formBuilder: FormBuilder,
     private soundService: SoundService,
     private lifeTabService: LifeTabService) {
   }
 
   ngOnInit(): void {
-    this.createDamageForm()
     this.defenseIcons = this.setDefenseIcons();
-  }
-
-  private createDamageForm() {
-    this.damageForm = this.formBuilder.group({
-      damage: [0, [Validators.required, Validators.max(12)]],
-    })
   }
 
   dealDamage() {
     this.monsterService.$currentMonster.next(this.monster);
     this.lifeTabService.show();
-    this.soundService.triggerAttackSound();
   }
 
   deleteMonster() {

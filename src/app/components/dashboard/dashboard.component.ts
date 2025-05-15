@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 
   private createPlayersForm() {
     this.playersForm = this.formBuilder.group({
-      players: ['', Validators.required],
+      players: ['5', Validators.required],
     })
   }
 
