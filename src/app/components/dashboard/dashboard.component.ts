@@ -6,6 +6,7 @@ import { Monster } from '../../models/monster';
 import { SoundService } from '../../services/sound.service';
 import { LifeTabService } from '../../services/life-tab.service';
 import { Mob } from '../../models/mob';
+import { RoamingMonster } from '../../models/roaming-monster';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ import { Mob } from '../../models/mob';
 export class DashboardComponent implements OnInit {
 
   monstersData: any = monstersData;
-  monsterList!: Monster[];
+  monsterList!: any[];
   monsterForm!: FormGroup;
   roamingMonsterForm!: FormGroup;
   playersForm!: FormGroup;
@@ -138,7 +139,23 @@ export class DashboardComponent implements OnInit {
   }
 
   private createRoamingMonsterFromData(selectedRoamingMonster: any) {
+    const roamingMonster = new RoamingMonster();
+    roamingMonster.name = selectedRoamingMonster.name;
+    roamingMonster.img = selectedRoamingMonster.img;
+    roamingMonster.defense = selectedRoamingMonster.defense;
+    roamingMonster.currentHealth = selectedRoamingMonster.health;
+    roamingMonster.health = selectedRoamingMonster.health;
+    roamingMonster.drop = selectedRoamingMonster.drop;
+    roamingMonster.rareDrop = selectedRoamingMonster.rareDrop;
+    roamingMonster.epicDrop = selectedRoamingMonster.epicDrop;
+    roamingMonster.closeAttack = selectedRoamingMonster.closeAttack;
+    roamingMonster.rangeAttack = selectedRoamingMonster.rangeAttack;
+    roamingMonster.action = selectedRoamingMonster.action;
+    roamingMonster.action2 = selectedRoamingMonster.action2;
+    roamingMonster.mobs = [this.createMobFromSelectedMonster(selectedRoamingMonster)];
+    roamingMonster.mobsNumber = 0;
 
+    this.monsterService.addMonster(roamingMonster);
   }
 
   submitMonster() {

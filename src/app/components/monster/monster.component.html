@@ -1,4 +1,4 @@
-<div class="rpgui-container framed-golden-2 custom-position" [ngClass]="{'dead': monster.currentHealth === 0}">
+<div class="rpgui-container framed-golden-2 custom-position" [ngClass]="{'dead': monster.currentHealth === 0}" *ngIf="!isRoamingMonster">
   <div class="row" style="margin-bottom: 5px;">
     <div class="col-10">
       <h1 style="text-align: left;">{{monster.name | uppercase}}</h1>
@@ -39,6 +39,76 @@
         <hr>
         <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 110px; padding-right: 25px;">
             <p (click)="dealDamage()"><span class="custom-font attack rpgui-cursor-point">a</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="rpgui-container framed-golden custom-position" [ngClass]="{'dead': monster.currentHealth === 0}" *ngIf="isRoamingMonster" style="padding-bottom:7px; padding-right: 22px;">
+  <div class="row" style="margin-bottom: 5px;">
+    <div class="col-10">
+      <h1 style="text-align: left;">{{monster.name | uppercase}}</h1>
+    </div>
+    <div class="col-2 text-end" style="padding-right: 0;">
+      <button (click)="deleteMonster()" class="btn-close btn-close-white"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 rpgui-container framed-grey">
+      <img [src]="monster.img" class="card-img-top" alt="..." style="height: 100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="row" *ngIf="monster.drop">
+        <div class="col-6">
+          <p>CAGNOTTE : {{monster.drop}}</p>
+        </div>
+      </div>
+      <div class="row" *ngIf="monster.rareDrop">
+        <div class="col-6">
+          <p>CAGNOTTE RARE: {{monster.rareDrop}}</p>
+        </div>
+      </div>
+      <div class="row" *ngIf="monster.epicDrop">
+        <div class="col-6">
+          <p>CAGNOTTE EPIQUE: {{monster.epicDrop}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>DEFENSE &nbsp;: {{monster.defense.blueDie}} <span class="custom-font DIE-BLUE">s</span> {{monster.defense.blackDie}} <span class="custom-font DIE-BLACK">s</span> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>HP TOTAL : {{monster.currentHealth}}</p>
+        </div>
+      </div>
+      <div class="row" *ngIf="monster.closeAttack">
+        <div class="col-12">
+          <p>MELEE ATTACK : {{monster.closeAttack.yellowDie}} <span *ngIf="monster.closeAttack.yellowDie" class="custom-font DIE-YELLOW">s</span> {{monster.closeAttack.orangeDie}} <span *ngIf="monster.closeAttack.orangeDie" class="custom-font DIE-ORANGE">s</span> {{monster.closeAttack.blackDie}} <span *ngIf="monster.closeAttack.blackDie" class="custom-font DIE-BLACK">s</span></p>
+        </div>
+      </div>
+      <div class="row" *ngIf="monster.rangeAttack">
+        <div class="col-12">
+            <p>RANGE ATTACK : {{monster.rangeAttack.yellowDie}} <span *ngIf="monster.rangeAttack.yellowDie" class="custom-font DIE-YELLOW">s</span> {{monster.rangeAttack.orangeDie}} <span *ngIf="monster.rangeAttack.orangeDie" class="custom-font DIE-ORANGE">s</span> {{monster.rangeAttack.blackDie}} <span *ngIf="monster.rangeAttack.blackDie" class="custom-font DIE-BLACK">s</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>{{monster.action}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>{{monster.action2}}</p>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+        <hr>
+        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 110px; padding-right: 25px;">
+            <p (click)="dealDamage()"><span class="custom-font attack-roaming rpgui-cursor-point">a</span></p>
         </div>
       </div>
     </div>

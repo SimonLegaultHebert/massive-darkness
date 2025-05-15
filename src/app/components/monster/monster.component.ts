@@ -4,6 +4,7 @@ import { Monster } from '../../models/monster';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SoundService } from '../../services/sound.service';
 import { LifeTabService } from '../../services/life-tab.service';
+import { RoamingMonster } from '../../models/roaming-monster';
 
 @Component({
   selector: 'app-monster',
@@ -15,10 +16,11 @@ import { LifeTabService } from '../../services/life-tab.service';
 export class MonsterComponent implements OnInit {
 
 
-  @Input() monster!: Monster;
+  @Input() monster!: any;
 
   damageForm!: FormGroup;
   defenseIcons!: string;
+  isRoamingMonster!: boolean;
 
   constructor(
     private monsterService: MonsterService,
@@ -27,7 +29,13 @@ export class MonsterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.defenseIcons = this.setDefenseIcons();
+    if (this.monster instanceof Monster) {
+      this.isRoamingMonster = false;
+      this.defenseIcons = this.setDefenseIcons();
+    } else {
+      console.log(this.monster)
+      this.isRoamingMonster = true;
+    }
   }
 
   dealDamage() {
@@ -43,9 +51,12 @@ export class MonsterComponent implements OnInit {
 
   private setDefenseIcons() {
     let defenseIcon = '';
-    for (let i = 1; i <= this.monster.defense; i++) {
-      defenseIcon = defenseIcon + ' b';
+    if (this.monster instanceof Monster) {
+      for (let i = 1; i <= this.monster.defense; i++) {
+        defenseIcon = defenseIcon + ' b';
+      }
     }
+
     return defenseIcon;
   }
 

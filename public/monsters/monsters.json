@@ -10,55 +10,55 @@
         },
         {
             "name": "Undead",
-			"img": "/monsters/level 1/undead.png",
+            "img": "/monsters/level 1/undead.png",
             "drop": 1,
             "health": 4,
             "defense": 0,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font die-yellow\">s</span> and this Mob takes 2 Wounds."
         },
-		{
+        {
             "name": "Fire Entities",
-			"img": "/monsters/level 1/fire_entities.png",
+            "img": "/monsters/level 1/fire_entities.png",
             "drop": 1,
             "health": 3,
             "defense": 1,
             "action": "COMBAT 1 <span class=\"custom-font special\">e</span> : Add 1 <span class=\"custom-font die-yellow\">h</span> to the attacking or defenfing Hero."
         },
-		{
+        {
             "name": "Fallen Angels",
-			"img": "/monsters/level 1/fallen_angels.png",
+            "img": "/monsters/level 1/fallen_angels.png",
             "drop": 1,
             "health": 2,
             "defense": 2,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : Defender -1 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Satyrs",
-			"img": "/monsters/level 1/satyrs.png",
+            "img": "/monsters/level 1/satyrs.png",
             "drop": 1,
             "health": 3,
             "defense": 1,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font mana\">a</span>."
         },
-		{
+        {
             "name": "Gargoyles",
-			"img": "/monsters/level 1/gargoyles.png",
+            "img": "/monsters/level 1/gargoyles.png",
             "drop": 1,
             "health": 2,
             "defense": 1,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Infernal Imps",
-			"img": "/monsters/level 1/infernal_imps.png",
+            "img": "/monsters/level 1/infernal_imps.png",
             "drop": 1,
             "health": 3,
             "defense": 1,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : Kill 1 Imp. Then, deal 1 Wound to each Hero in the attacker's Zone (once per roll)"
         },
-		{
+        {
             "name": "Skeletons",
-			"img": "/monsters/level 1/skeletons.png",
+            "img": "/monsters/level 1/skeletons.png",
             "drop": 1,
             "health": 2,
             "defense": 1,
@@ -76,55 +76,55 @@
         },
         {
             "name": "Undead",
-			"img": "/monsters/level 3/undead.png",
+            "img": "/monsters/level 3/undead.png",
             "drop": 1,
             "health": 5,
             "defense": 0,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +2 <span class=\"custom-font die-yellow\">s</span> and this Mob takes 2 Wounds."
         },
-		{
+        {
             "name": "Fire Entities",
-			"img": "/monsters/level 3/fire_entities.png",
+            "img": "/monsters/level 3/fire_entities.png",
             "drop": 1,
             "health": 4,
             "defense": 2,
             "action": "COMBAT 1 <span class=\"custom-font special\">e</span> : Add 1 <span class=\"custom-font die-yellow\">h</span> to the attacking or defenfing Hero."
         },
-		{
+        {
             "name": "Fallen Angels",
-			"img": "/monsters/level 3/fallen_angels.png",
+            "img": "/monsters/level 3/fallen_angels.png",
             "drop": 1,
             "health": 3,
             "defense": 3,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : Defender -2 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Satyrs",
-			"img": "/monsters/level 3/satyrs.png",
+            "img": "/monsters/level 3/satyrs.png",
             "drop": 1,
             "health": 4,
             "defense": 2,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +2 <span class=\"custom-font mana\">a</span>."
         },
-		{
+        {
             "name": "Gargoyles",
-			"img": "/monsters/level 3/gargoyles.png",
+            "img": "/monsters/level 3/gargoyles.png",
             "drop": 1,
             "health": 3,
             "defense": 2,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Infernal Imps",
-			"img": "/monsters/level 3/infernal_imps.png",
+            "img": "/monsters/level 3/infernal_imps.png",
             "drop": 1,
             "health": 4,
             "defense": 1,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : Kill 1 Imp. Then, deal 2 Wound to each Hero in the attacker's Zone (once per roll)"
         },
-		{
+        {
             "name": "Skeletons",
-			"img": "/monsters/level 3/skeletons.png",
+            "img": "/monsters/level 3/skeletons.png",
             "drop": 1,
             "health": 3,
             "defense": 2,
@@ -142,62 +142,87 @@
         },
         {
             "name": "Undead",
-			"img": "/monsters/level 5/undead.png",
+            "img": "/monsters/level 5/undead.png",
             "drop": 2,
             "health": 8,
             "defense": 0,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +1 <span class=\"custom-font die-yellow\">s</span> +1 <span class=\"custom-font die-orange\">s</span> and this Mob takes 2 Wounds."
         },
-		{
+        {
             "name": "Fire Entities",
-			"img": "/monsters/level 5/fire_entities.png",
+            "img": "/monsters/level 5/fire_entities.png",
             "drop": 2,
             "health": 7,
             "defense": 3,
             "action": "COMBAT 1 <span class=\"custom-font special\">e</span> : Add 1 <span class=\"custom-font die-yellow\">h</span> to the attacking or defenfing Hero."
         },
-		{
+        {
             "name": "Fallen Angels",
-			"img": "/monsters/level 5/fallen_angels.png",
+            "img": "/monsters/level 5/fallen_angels.png",
             "drop": 2,
             "health": 5,
             "defense": 5,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : Defender -2 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Satyrs",
-			"img": "/monsters/level 5/satyrs.png",
+            "img": "/monsters/level 5/satyrs.png",
             "drop": 2,
             "health": 6,
             "defense": 4,
             "action": "ATTACK 1 <span class=\"custom-font special\">e</span> : +2 <span class=\"custom-font mana\">a</span>."
         },
-		{
+        {
             "name": "Gargoyles",
-			"img": "/monsters/level 5/gargoyles.png",
+            "img": "/monsters/level 5/gargoyles.png",
             "drop": 2,
             "health": 6,
             "defense": 3,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : +2 <span class=\"custom-font mana\">b</span>."
         },
-		{
+        {
             "name": "Infernal Imps",
-			"img": "/monsters/level 5/infernal_imps.png",
+            "img": "/monsters/level 5/infernal_imps.png",
             "drop": 2,
             "health": 5,
             "defense": 3,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : Kill 1 Imp. Then, deal 3 Wound to each Hero in the attacker's Zone (once per roll)"
         },
-		{
+        {
             "name": "Skeletons",
-			"img": "/monsters/level 5/skeletons.png",
+            "img": "/monsters/level 5/skeletons.png",
             "drop": 2,
             "health": 5,
             "defense": 4,
             "action": "DEFENSE 1 <span class=\"custom-font special\">e</span> : Add 1 Skeleton Minion to this Mob (if possible) unless the attacking Hero discards 2 <span class=\"custom-font mana\">c</span>."
         }
     ],
-    "roamingMonsterLevel1": [],
-	"roamingMonsterLevel3": [],
-	"roamingMonsterLevel5": []
+    "roamingMonsterLevel1": [
+        {
+            "name": "Skeletons 123",
+            "img": "/monsters/level 5/skeletons.png",
+			"health": "4",
+            "drop": 0,
+            "rareDrop": 2,
+            "epicDrop": 2,
+            "defense": {
+                "blueDie": 2,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "yellowDie": 1,
+                "orangeDie": 1,
+                "blackDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 1,
+                "orangeDie": 1,
+                "blackDie": 1
+            }, 
+            "action": "TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES TSETTESTdsasfsafafssfafasfasasffsasfasafaSET",
+            "action2": "TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES TSETTESdasasddsadsa123321231321321123312TSET"
+        }
+    ],
+    "roamingMonsterLevel3": [],
+    "roamingMonsterLevel5": []
 }

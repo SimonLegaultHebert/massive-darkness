@@ -18,6 +18,7 @@ export class LifeTabComponent implements OnInit {
   lastMobIndex!: number;
   killLog!: string;
   isUltimateAttack: boolean = false;
+  isRoamingMonster!: boolean;
 
   constructor(
     private monsterService: MonsterService,
@@ -33,6 +34,8 @@ export class LifeTabComponent implements OnInit {
       this.createDamageForm();
       this.lastMobIndex = this.currentMonster.lastMobIndex;
       this.killLog = '';
+
+      this.isRoamingMonster = this.currentMonster instanceof Monster ? false : true;
     });
   }
 
@@ -51,7 +54,13 @@ export class LifeTabComponent implements OnInit {
       } else {
         this.soundService.triggerAttackSound();
       }
-      this.damageDone(damageDone)
+
+      if (!this.isRoamingMonster) {
+        this.damageDone(damageDone)
+      } else {
+        this.damageDoneOnRoamingMonster(damageDone)
+      }
+
     }
   }
 
@@ -93,7 +102,7 @@ export class LifeTabComponent implements OnInit {
           timeout = 1000;
         }
         setTimeout(() => {
-           this.soundService.triggerLeaderKillSound();
+          this.soundService.triggerLeaderKillSound();
         }, timeout)
         return `<p>Le héro gagne ${exp} d'expérience et le reste des boulets reçoit 2 d'expérience!</p><p>Empochez cette cagnote!</p>`;
       } else {
@@ -104,6 +113,26 @@ export class LifeTabComponent implements OnInit {
       }
     }
     return ''
+  }
+
+  damageDoneOnRoamingMonster(damage: number) {
+    this.currentMonster.currentHealth = this.currentMonster.currentHealth - damage;
+    this.currentMonster.mobs[0].currentLife = this.currentMonster.mobs[0].currentLife - damage;
+    this.killLog = this.generateKillLogRoamingMonster();
+    this.isUltimateAttack = false;
+    this.saveMonsterChanges();
+    this.damageForm.get('damage')?.setValue(0);
+  }
+
+  private generateKillLogRoamingMonster() {
+    if (this.currentMonster.currentHealth === 0) {
+      let timeout = this.isUltimateAttack ? 1000 : 300;
+      setTimeout(() => {
+        this.soundService.triggerLeaderKillSound();
+      }, timeout)
+      return '<p>Dur dans la peiture! Chaque héro reçoit 4 d\'expérience!</p><p>Par ici la moooowwwwnaie!</p>';
+    }
+    return '';
   }
 
   private saveMonsterChanges() {
