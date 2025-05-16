@@ -199,30 +199,249 @@
     ],
     "roamingMonsterLevel1": [
         {
-            "name": "Skeletons 123",
-            "img": "/monsters/level 5/skeletons.png",
-			"health": "4",
-            "drop": 0,
-            "rareDrop": 2,
-            "epicDrop": 2,
+            "name": "Lyidan, Incubus Lord",
+            "img": "/roaming-monsters/level 1/Lyidan.png",
+            "health": "7",
+            "drop": 2,
+            "rareDrop": 1,
+            "defense": {
+                "blueDie": 2,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "orangeDie": 1,
+                "blackDie": 2
+            },
+            "action": "<b>If Lyidan is in a Light Zone: </b>Lyidan takes 3 Wounds and moves to the closest Shadow Zone.",
+            "action2": "<b>If there is a Hero up to 3 Zones away <i>(regardless of LoS): </i></b>Place Lyidan in the Zone with the furthest Hero up to 3 Zones away <i>(regardless of LoS).</i> Add 1 <span class=\"custom-font die-yellow\">h</span> to that Hero and attack them.",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : After combat, resolve all <span class=\"custom-font die-yellow\">h</span> on the defending Hero (once per combat)."
+        },
+        {
+            "name": "Ytheria, Undead Queen",
+            "img": "/roaming-monsters/level 1/Ytheria.png",
+            "health": "4",
+            "drop": 2,
+            "rareDrop": 1,
+            "defense": {
+                "blueDie": 1,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "yellowDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 2,
+                "blackDie": 1
+            },
+            "action": "<b>If there is more than 1 Hero in LoS:</b> Ytheria attacks each Hero in LoS <i>(resolve each attack seperately)</i>",
+            "action2": "<b>If there is only 1 Hero in LoS:</b> Ytheria attacks that Hero with +1 <span class=\"custom-font die-orange\">s</span>",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : Add 1 Minion to each Mob in the Dungeon, if possible."
+        },
+        {
+            "name": "Andra",
+            "img": "/roaming-monsters/level 1/Andra.png",
+            "health": "5",
+            "drop": 2,
+            "rareDrop": 1,
             "defense": {
                 "blueDie": 2,
                 "blackDie": 1
             },
             "closeAttack": {
                 "yellowDie": 1,
-                "orangeDie": 1,
                 "blackDie": 1
             },
             "rangeAttack": {
                 "yellowDie": 1,
+                "blackDie": 1
+            },
+            "action": "<b>If Andra is in the Dungeon:</b> Andra attack the Hero with the lowest Health in LoS, if possible. Then, remove Andra from the Dungeon.",
+            "action2": "<b>If Andra is not in the Dungeon:</b> Place Andra in a Zone adjacent to the Hero with the lowest Health. Then Andra attacks that Hero.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Deal 1 Wound to another Hero with the lowest Health in LoS."
+        },
+        {
+            "name": "The Ghoul",
+            "img": "/roaming-monsters/level 1/The Ghoul.png",
+            "health": "5",
+            "drop": 2,
+            "rareDrop": 1,
+            "defense": {
+                "blueDie": 2,
+                "blackDie": 1
+            },
+            "closeAttack": {
                 "orangeDie": 1,
                 "blackDie": 1
-            }, 
-            "action": "TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES TSETTESTdsasfsafafssfafasfasasffsasfasafaSET",
-            "action2": "TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES TSETTESdasasddsadsa123321231321321123312TSET"
+            },
+            "action": "<b>If there is a Minion in the Ghoul's Zone:</b> Kill 1 Minion in that Zone <i>(players choose)</i> and The Ghoul Heals 5.",
+            "action2": "<b>Otherwise:</b> The Ghoul moves 3 Zones toward the closest Hero and attacks them, if possible.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Move the closest Mob 1 Zone toward The Ghoul."
         }
     ],
-    "roamingMonsterLevel3": [],
-    "roamingMonsterLevel5": []
+    "roamingMonsterLevel3": [
+        {
+            "name": "Lyidan, Incubus Lord",
+            "img": "/roaming-monsters/level 3/Lyidan.png",
+            "health": "10",
+            "drop": 2,
+            "epicDrop": 1,
+            "defense": {
+                "blueDie": 2,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "orangeDie": 2,
+                "blackDie": 1
+            },
+            "action": "<b>If Lyidan is in a Light Zone: </b>Lyidan takes 5 Wounds and moves to the closest Shadow Zone.",
+            "action2": "<b>If there is a Hero up to 3 Zones away <i>(regardless of LoS): </i></b>Place Lyidan in the Zone with the furthest Hero up to 3 Zones away <i>(regardless of LoS).</i> Add 1 <span class=\"custom-font die-yellow\">h</span> to that Hero and attack them.",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : After combat, resolve all <span class=\"custom-font die-yellow\">h</span> on the defending Hero using <span class=\"custom-font die-orange\">s</span> instead (once per combat)."
+        },
+        {
+            "name": "Ytheria, Undead Queen",
+            "img": "/roaming-monsters/level 3/Ytheria.png",
+            "health": "6",
+            "drop": 2,
+            "epicDrop": 1,
+            "defense": {
+                "blueDie": 2,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "orangeDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 1,
+				"orangeDie": 1,
+                "blackDie": 1
+            },
+            "action": "<b>If there is more than 1 Hero in LoS:</b> Ytheria attacks each Hero in LoS <i>(resolve each attack seperately)</i>",
+            "action2": "<b>If there is only 1 Hero in LoS:</b> Ytheria attacks that Hero with +1 <span class=\"custom-font die-yellow\">s</span> +1 <span class=\"custom-font die-orange\">s</span>",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : Add 1 Minion to each Mob in the Dungeon, if possible."
+        },
+        {
+            "name": "Andra",
+            "img": "/roaming-monsters/level 3/Andra.png",
+            "health": "7",
+            "drop": 2,
+            "epicDrop": 1,
+            "defense": {
+                "blueDie": 3,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "yellowDie": 1,
+				"orangeDie": 1,
+                "blackDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 1,
+				"orangeDie": 1,
+                "blackDie": 1
+            },
+            "action": "<b>If Andra is in the Dungeon:</b> Andra attack the Hero with the lowest Health in LoS, if possible. Then, remove Andra from the Dungeon.",
+            "action2": "<b>If Andra is not in the Dungeon:</b> Place Andra in a Zone adjacent to the Hero with the lowest Health. Then Andra attacks that Hero.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Deal 2 Wound to another Hero with the lowest Health in LoS."
+        },
+        {
+            "name": "The Ghoul",
+            "img": "/roaming-monsters/level 3/The Ghoul.png",
+            "health": "8",
+            "drop": 2,
+            "epicDrop": 1,
+            "defense": {
+                "blueDie": 3,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "orangeDie": 2,
+                "blackDie": 2
+            },
+            "action": "<b>If there is a Minion in the Ghoul's Zone:</b> Kill 1 Minion in that Zone <i>(players choose)</i> and The Ghoul Heals 8.",
+            "action2": "<b>Otherwise:</b> The Ghoul moves 3 Zones toward the closest Hero and attacks them, if possible.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Move the closest Mob 1 Zone toward The Ghoul."
+        }
+    ],
+    "roamingMonsterLevel5": [
+        {
+            "name": "Lyidan, Incubus Lord",
+            "img": "/roaming-monsters/level 5/Lyidan.png",
+            "health": "12",
+            "epicDrop": 3,
+            "defense": {
+                "blueDie": 4,
+                "blackDie": 1
+            },
+            "closeAttack": {
+				"yellowDie": 2,
+                "orangeDie": 2,
+                "blackDie": 1
+            },
+            "action": "<b>If Lyidan is in a Light Zone: </b>Lyidan takes 6 Wounds and moves to the closest Shadow Zone.",
+            "action2": "<b>If there is a Hero up to 3 Zones away <i>(regardless of LoS): </i></b>Place Lyidan in the Zone with the furthest Hero up to 3 Zones away <i>(regardless of LoS).</i> Add 2 <span class=\"custom-font die-yellow\">h</span> to that Hero and attack them.",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : After combat, resolve all <span class=\"custom-font die-yellow\">h</span> on the defending Hero using <span class=\"custom-font die-orange\">s</span> instead (once per combat)."
+        },
+        {
+            "name": "Ytheria, Undead Queen",
+            "img": "/roaming-monsters/level 5/Ytheria.png",
+            "health": "8",
+            "epicDrop": 3,
+            "defense": {
+                "blueDie": 4,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "yellowDie": 2,
+				"orangeDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 2,
+				"orangeDie": 1,
+                "blackDie": 1
+            },
+            "action": "<b>If there is more than 1 Hero in LoS:</b> Ytheria attacks each Hero in LoS <i>(resolve each attack seperately)</i>",
+            "action2": "<b>If there is only 1 Hero in LoS:</b> Ytheria attacks that Hero with +2 <span class=\"custom-font die-orange\">s</span>",
+            "action3": "ATTACK 1 <span class=\"custom-font special\">e</span> : Add 1 Minion to each Mob in the Dungeon, if possible."
+        },
+        {
+            "name": "Andra",
+            "img": "/roaming-monsters/level 5/Andra.png",
+            "health": "10",
+            "epicDrop": 3,
+            "defense": {
+                "blueDie": 5,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "yellowDie": 1,
+				"orangeDie": 2,
+                "blackDie": 1
+            },
+            "rangeAttack": {
+                "yellowDie": 1,
+				"orangeDie": 2,
+                "blackDie": 1
+            },
+            "action": "<b>If Andra is in the Dungeon:</b> Andra attack the Hero with the lowest Health in LoS, if possible. Then, remove Andra from the Dungeon.",
+            "action2": "<b>If Andra is not in the Dungeon:</b> Place Andra in a Zone adjacent to the Hero with the lowest Health. Then Andra attacks that Hero.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Deal 2 Wound to another Hero with the lowest Health in LoS."
+        },
+        {
+            "name": "The Ghoul",
+            "img": "/roaming-monsters/level 5/The Ghoul.png",
+            "health": "10",
+            "epicDrop": 3,
+            "defense": {
+                "blueDie": 4,
+                "blackDie": 1
+            },
+            "closeAttack": {
+                "orangeDie": 3,
+                "blackDie": 3
+            },
+            "action": "<b>If there is a Minion in the Ghoul's Zone:</b> Kill 1 Minion in that Zone <i>(players choose)</i> and The Ghoul Heals 10.",
+            "action2": "<b>Otherwise:</b> The Ghoul moves 3 Zones toward the closest Hero and attacks them, if possible.",
+            "action3": "COMBAT 1 <span class=\"custom-font special\">e</span> : Move the closest Mob 1 Zone toward The Ghoul."
+        }
+    ]
 }

@@ -78,20 +78,22 @@ export class DashboardComponent implements OnInit {
   }
 
   onRoamingMonsterLevelChange() {
+    console.log('1')
     switch (this.roamingMonsterForm.get('level')?.getRawValue()) {
       case '1-2': {
         this.selectedRoamingMonsterList = this.monstersData.roamingMonsterLevel1;
         break;
       }
       case '3-4': {
-        this.selectedRoamingMonsterList = this.monstersData.roamingMonsterLevel2;
-        break;
-      }
-      case '5': {
         this.selectedRoamingMonsterList = this.monstersData.roamingMonsterLevel3;
         break;
       }
+      case '5': {
+        this.selectedRoamingMonsterList = this.monstersData.roamingMonsterLevel5;
+        break;
+      }
     }
+    console.log(this.selectedRoamingMonsterList)
 
   }
 
@@ -108,7 +110,7 @@ export class DashboardComponent implements OnInit {
     monster.drop = selectedMonster.drop;
     monster.health = selectedMonster.health;
     monster.action = selectedMonster.action;
-    monster.id = crypto.randomUUID()
+    monster.id = crypto.randomUUID();
     monster.mobs = this.createMobsArray(selectedMonster);
     monster.mobsNumber = monster.mobs.length - 1;
     monster.lastMobIndex = monster.mobs.length - 1;
@@ -133,6 +135,13 @@ export class DashboardComponent implements OnInit {
     return mob;
   }
 
+  private createMobFromSelecteRoamingdMonster(selectedMonster: RoamingMonster) {
+    let mob = new Mob();
+    mob.currentLife = selectedMonster.health;
+    mob.maxLife = selectedMonster.health;
+    return mob;
+  }
+
   private createRoamingMonster() {
     const selectedRoamingMonster = this.selectedRoamingMonsterList.find((element: any) => element.name === this.roamingMonsterForm.get('name')?.getRawValue())
     this.createRoamingMonsterFromData(selectedRoamingMonster);
@@ -141,10 +150,11 @@ export class DashboardComponent implements OnInit {
   private createRoamingMonsterFromData(selectedRoamingMonster: any) {
     const roamingMonster = new RoamingMonster();
     roamingMonster.name = selectedRoamingMonster.name;
+    roamingMonster.id = crypto.randomUUID();
     roamingMonster.img = selectedRoamingMonster.img;
     roamingMonster.defense = selectedRoamingMonster.defense;
-    roamingMonster.currentHealth = selectedRoamingMonster.health;
-    roamingMonster.health = selectedRoamingMonster.health;
+    roamingMonster.currentHealth = selectedRoamingMonster.health * this.playersForm.get('players')?.getRawValue();
+    roamingMonster.health = selectedRoamingMonster.health * this.playersForm.get('players')?.getRawValue();
     roamingMonster.drop = selectedRoamingMonster.drop;
     roamingMonster.rareDrop = selectedRoamingMonster.rareDrop;
     roamingMonster.epicDrop = selectedRoamingMonster.epicDrop;
@@ -152,9 +162,11 @@ export class DashboardComponent implements OnInit {
     roamingMonster.rangeAttack = selectedRoamingMonster.rangeAttack;
     roamingMonster.action = selectedRoamingMonster.action;
     roamingMonster.action2 = selectedRoamingMonster.action2;
-    roamingMonster.mobs = [this.createMobFromSelectedMonster(selectedRoamingMonster)];
+    roamingMonster.action3 = selectedRoamingMonster.action3;
+    roamingMonster.mobs = [this.createMobFromSelecteRoamingdMonster(roamingMonster)];
     roamingMonster.mobsNumber = 0;
 
+    console.log(roamingMonster)
     this.monsterService.addMonster(roamingMonster);
   }
 

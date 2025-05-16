@@ -23,7 +23,7 @@
             <div class="col-5 offset-2">
                 <div class="row">
                     <div class="col-12">
-                        <h6 id="test123123">AJOUTER UN MONSTRE</h6>
+                        <h6>AJOUTER UN MONSTRE</h6>
                     </div>
                 </div>
                 <form [formGroup]="monsterForm" (ngSubmit)="submitMonster()">
@@ -66,8 +66,7 @@
                     <div class="row">
                         <div class="col-12">
                             <select class="form-select rpgui-cursor-default" aria-label="Default select example"
-                                formControlName="name" style="margin-bottom: 0.5rem;"
-                                (change)="onRoamingMonsterLevelChange()">
+                                formControlName="name" style="margin-bottom: 0.5rem;">
                                 <div *ngFor="let monster of selectedRoamingMonsterList">
                                     <option [value]="monster.name">{{monster.name | uppercase}}</option>
                                 </div>
@@ -77,7 +76,7 @@
                     <div class="row">
                         <div class="col-12">
                             <select class="form-select rpgui-cursor-default" aria-label="Default select example"
-                                formControlName="level" style="margin-bottom: 0.5rem;">
+                                formControlName="level" style="margin-bottom: 0.5rem;" (change)="onRoamingMonsterLevelChange()">
                                 <option value="1-2">LEVEL I-II</option>
                                 <option value="3-4">LEVEL III-IV</option>
                                 <option value="5">LEVEL V</option>

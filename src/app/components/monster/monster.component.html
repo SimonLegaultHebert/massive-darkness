@@ -37,7 +37,7 @@
       </div>
       <div class="row" style="margin-top: 10px;">
         <hr>
-        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 110px; padding-right: 25px;">
+        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 220px; padding-right: 25px;">
             <p (click)="dealDamage()"><span class="custom-font attack rpgui-cursor-point">a</span></p>
         </div>
       </div>
@@ -60,19 +60,9 @@
       <img [src]="monster.img" class="card-img-top" alt="..." style="height: 100%;">
     </div>
     <div class="col-md-8">
-      <div class="row" *ngIf="monster.drop">
-        <div class="col-6">
-          <p>CAGNOTTE : {{monster.drop}}</p>
-        </div>
-      </div>
-      <div class="row" *ngIf="monster.rareDrop">
-        <div class="col-6">
-          <p>CAGNOTTE RARE: {{monster.rareDrop}}</p>
-        </div>
-      </div>
-      <div class="row" *ngIf="monster.epicDrop">
-        <div class="col-6">
-          <p>CAGNOTTE EPIQUE: {{monster.epicDrop}}</p>
+      <div class="row">
+        <div class="col-12">
+          <p>CAGNOTTE : {{monster.drop}}<span *ngIf="monster.drop">, </span> {{monster.rareDrop}} <span *ngIf="monster.rareDrop">RARE(S)</span> {{monster.epicDrop}} <span *ngIf="monster.epicDrop">EPIQUE(S)</span></p>
         </div>
       </div>
       <div class="row">
@@ -97,17 +87,22 @@
       </div>
       <div class="row">
         <div class="col">
-          <p>{{monster.action}}</p>
+          <p [innerHtml]="monster.action | uppercase"></p>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <p>{{monster.action2}}</p>
+          <p [innerHtml]="monster.action2 | uppercase"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p [innerHtml]="monster.action3 | uppercase"></p>
         </div>
       </div>
       <div class="row" style="margin-top: 10px;">
         <hr>
-        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; margin-top: 110px; padding-right: 25px;">
+        <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; padding-right: 25px;">
             <p (click)="dealDamage()"><span class="custom-font attack-roaming rpgui-cursor-point">a</span></p>
         </div>
       </div>

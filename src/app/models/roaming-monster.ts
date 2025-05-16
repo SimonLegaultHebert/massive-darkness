@@ -15,6 +15,7 @@ export class RoamingMonster {
     rangeAttack!: RoamingMonsterAttack;
     action!: string;
     action2!: string;
+    action3!: string;
     id!: string;
     mobs!: Mob[];
     mobsNumber!: number;
