@@ -1,10 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MonsterService } from '../../services/monster.service';
 import { Monster } from '../../models/monster';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { SoundService } from '../../services/sound.service';
 import { LifeTabService } from '../../services/life-tab.service';
-import { RoamingMonster } from '../../models/roaming-monster';
 
 @Component({
   selector: 'app-monster',
@@ -33,7 +32,6 @@ export class MonsterComponent implements OnInit {
       this.isRoamingMonster = false;
       this.defenseIcons = this.setDefenseIcons();
     } else {
-      console.log(this.monster)
       this.isRoamingMonster = true;
     }
   }
@@ -62,6 +60,11 @@ export class MonsterComponent implements OnInit {
 
   onDamageChange() {
     this.soundService.triggerClickSound();
+  }
+
+  addOneMob() {
+    this.soundService.triggerSummonSound();
+    this.monsterService.addOneMobToEachPack();
   }
 
 }

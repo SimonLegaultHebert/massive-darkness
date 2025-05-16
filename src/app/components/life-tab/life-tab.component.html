@@ -16,8 +16,27 @@
                         class="col"></app-life-bar>
                 </div>
 
-
                 <div class="modal-footer" style="padding-bottom:0px; margin-top:10px;">
+                    <div class="row" style="width: 100%;" *ngIf="currentMonster.name === 'The Ghoul'">
+                        <div class="col">
+                            <form [formGroup]="healingForm" (ngSubmit)="healDamage()">
+                                <div class="row">
+                                    <div class="col" style="text-align: center;">
+                                        <input type="number" min="0" max="{{currentMonster.currentHealth}}" formControlName="healing"
+                                            name="damage" class="text-center rpgui-cursor-point"
+                                            style="width: 50%;" (change)="onHealChange()">
+                                    </div>
+                                </div>   
+                                <div class="row">
+                                    <div class="col" style="text-align: center;">
+                                        <button type="submit button" class="rpgui-button golden" style="width: 50%;">
+                                            <p class="button-text">SOIGNER</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="row" style="width: 100%;">
                         <div class="col">
                             <form [formGroup]="damageForm" (ngSubmit)="dealDamage()">
@@ -27,7 +46,7 @@
                                             name="damage" class="text-center rpgui-cursor-point"
                                             style="width: 50%;" (change)="onDamageChange()">
                                     </div>
-                                </div>
+                                </div>   
                                 <div class="row">
                                     <div class="col" style="text-align: center;">
                                         <button type="submit button" class="rpgui-button golden" style="width: 50%;">

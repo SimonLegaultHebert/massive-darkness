@@ -14,6 +14,7 @@ export class LifeTabComponent implements OnInit {
 
   currentMonster!: Monster;
   damageForm!: FormGroup;
+  healingForm!: FormGroup;
   maxLife!: number;
   lastMobIndex!: number;
   killLog!: string;
@@ -32,6 +33,7 @@ export class LifeTabComponent implements OnInit {
       this.currentMonster = res
       this.maxLife = (this.currentMonster.mobs.length * this.currentMonster.health);
       this.createDamageForm();
+      this.createHealingForm();
       this.lastMobIndex = this.currentMonster.lastMobIndex;
       this.killLog = '';
 
@@ -42,6 +44,12 @@ export class LifeTabComponent implements OnInit {
   private createDamageForm() {
     this.damageForm = this.formBuilder.group({
       damage: [0, [Validators.required, Validators.max(this.currentMonster.currentHealth)]],
+    })
+  }
+
+  private createHealingForm() {
+    this.healingForm = this.formBuilder.group({
+      healing: [0, [Validators.required, Validators.max(this.currentMonster.currentHealth)]],
     })
   }
 
@@ -165,4 +173,20 @@ export class LifeTabComponent implements OnInit {
     this.soundService.triggerClickSound();
   }
 
+  healDamage() {
+    if (this.healingForm.valid) {
+      this.soundService.triggerMonsterEatingSound();
+      const healingDone = this.healingForm.get('healing')?.getRawValue();
+      this.currentMonster.currentHealth = this.currentMonster.currentHealth + healingDone;
+      this.currentMonster.mobs[0].currentLife = this.currentMonster.mobs[0].currentLife + healingDone;
+      this.isUltimateAttack = false;
+      this.saveMonsterChanges();
+      this.healingForm.get('healing')?.setValue(0);
+    }
+  }
+
+  onHealChange() {
+    this.killLog = '';
+    this.soundService.triggerClickSound();
+  }
 }

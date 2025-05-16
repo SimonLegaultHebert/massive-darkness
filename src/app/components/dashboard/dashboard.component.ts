@@ -166,7 +166,6 @@ export class DashboardComponent implements OnInit {
     roamingMonster.mobs = [this.createMobFromSelecteRoamingdMonster(roamingMonster)];
     roamingMonster.mobsNumber = 0;
 
-    console.log(roamingMonster)
     this.monsterService.addMonster(roamingMonster);
   }
 

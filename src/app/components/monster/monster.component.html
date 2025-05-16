@@ -102,6 +102,9 @@
       </div>
       <div class="row" style="margin-top: 10px;">
         <hr>
+        <div *ngIf="monster.name === 'Ytheria, Undead Queen'">
+          <p (click)="addOneMob()"><span class="custom-font attack rpgui-cursor-point">a</span></p>
+        </div>
         <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; padding-right: 25px;">
             <p (click)="dealDamage()"><span class="custom-font attack-roaming rpgui-cursor-point">a</span></p>
         </div>

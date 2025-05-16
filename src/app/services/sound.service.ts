@@ -11,6 +11,8 @@ export class SoundService {
   private expSoundsList = ['/sounds/level-1.wav', '/sounds/level-2.wav'];
   private leaderDefeatedSoundsList = ['/sounds/level-3.wav'];
   private clickSound = '/sounds/click.wav';
+  private summonSound = '/sounds/summon.wav';
+  private monsterEatingSoundsList = ['/sounds/monster-eating-1.wav', '/sounds/monster-eating-2.wav', '/sounds/monster-eating-3.wav'];
 
   constructor() { }
 
@@ -49,9 +51,23 @@ export class SoundService {
     audio.play();
   }
 
+  triggerMonsterEatingSound() {
+    let audio = new Audio();
+    audio.src = this.monsterEatingSoundsList[Math.floor(Math.random() * this.monsterEatingSoundsList.length)];
+    audio.load();
+    audio.play();
+  }
+
   triggerLeaderKillSound() {
     let audio = new Audio();
     audio.src = this.leaderDefeatedSoundsList[0];
+    audio.load();
+    audio.play();
+  }
+
+  triggerSummonSound() {
+    let audio = new Audio();
+    audio.src = this.summonSound;
     audio.load();
     audio.play();
   }
