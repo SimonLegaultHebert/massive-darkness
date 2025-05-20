@@ -73,6 +73,7 @@ export class LifeTabComponent implements OnInit {
   }
 
   damageDone(damage: number) {
+    console.log('test')
     let numberOfKill = 0;
     let isLeaderDead = false;
 
@@ -171,6 +172,38 @@ export class LifeTabComponent implements OnInit {
   onDamageChange() {
     this.killLog = '';
     this.soundService.triggerClickSound();
+  }
+
+  damageUp() {
+    this.soundService.triggerClickSound();
+    if (this.damageForm.get('damage')?.getRawValue() < this.currentMonster.currentHealth) {
+      let currentDamage = this.damageForm.get('damage')?.getRawValue();
+      this.damageForm.get('damage')?.setValue(currentDamage + 1);
+    }
+  }
+
+  damageDown() {
+    this.soundService.triggerClickSound();
+    if (this.damageForm.get('damage')?.getRawValue() !== 0) {
+      let currentDamage = this.damageForm.get('damage')?.getRawValue();
+      this.damageForm.get('damage')?.setValue(currentDamage - 1);
+    }
+  }
+
+  healUp() {
+    this.soundService.triggerClickSound();
+    if ((this.healingForm.get('healing')?.getRawValue() + this.currentMonster.currentHealth) < this.currentMonster.health) {
+      let currentHealing = this.healingForm.get('healing')?.getRawValue();
+      this.healingForm.get('healing')?.setValue(currentHealing + 1);
+    }
+  }
+
+  healDown() {
+    this.soundService.triggerClickSound();
+    if (this.healingForm.get('healing')?.getRawValue() !== 0) {
+      let currentHealing = this.healingForm.get('healing')?.getRawValue();
+      this.healingForm.get('healing')?.setValue(currentHealing - 1);
+    }
   }
 
   healDamage() {
