@@ -26,7 +26,7 @@ h6 {
 .button-text {
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-size: 1.0em;
+    font-size: 20px;
     line-height: 20px;
 }
 
@@ -49,4 +49,8 @@ img {
     background-image: url("/darkness-1.png");
     background-size: cover;
     image-rendering: auto !important;
+}
+
+select {
+    font-size: 25px;
 }

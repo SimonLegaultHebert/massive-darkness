@@ -11,12 +11,12 @@
 }
 
 .defense {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #00d0f6 !important;
 }
 
 .DEFENSE {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #00d0f6 !important;
 }
 
@@ -31,36 +31,36 @@
 }
 
 .DIE-YELLOW {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #f3c213 !important;
 }
 
 .DIE-ORANGE {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #da6827 !important;
 }
 
 .DIE-BLUE {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #00d0f6 !important;
 }
 
 .DIE-BLACK {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #40443f !important;
 }
 
 .FIRE {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: #e8b82d !important;
 }
 
 .SPECIAL {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
 }
 
 .MANA {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
 }
 
 input option:hover {
@@ -76,8 +76,8 @@ input option:hover {
 }
 
 h1 {
-    font-size: x-large !important;
-    margin-bottom: 7px !important;
+    font-size: 40px !important;
+    margin-bottom: 10px !important;
 }
 
 h2 {
@@ -105,4 +105,14 @@ img {
 
  .dead {
     opacity: 0.5;
+ }
+
+ .life {
+    text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff !important;
+    color: #e23a35!important;
+ }
+
+ .sbires {
+    text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff !important;
+    color: #40443f !important;
  }

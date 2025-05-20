@@ -8,26 +8,26 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 rpgui-container framed-grey">
-      <img [src]="monster.img" class="card-img-top" alt="..." style="height: 100%;">
+    <div class="col-md-4 rpgui-container framed-grey" style="max-height: 492px;">
+      <img [src]="monster.img" class="card-img-top">
     </div>
     <div class="col-md-8">
       <div class="row">
         <div class="col-6">
-          <p>CAGNOTTE : {{monster.drop}}</p>
+          <p class="life">HP TOTAL : {{monster.currentHealth}}</p>
         </div>
         <div class="col-6 text-end">
-          <p>SBIRES : {{monster.mobsNumber}}</p>
+          <p class="sbires">SBIRES : {{monster.mobsNumber}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>CAGNOTTE : {{monster.drop}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <p>DEFENSE &nbsp;: <span class="custom-font defense">{{defenseIcons}}</span></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p>HP TOTAL : {{monster.currentHealth}}</p>
         </div>
       </div>
       <div class="row">
@@ -56,10 +56,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 rpgui-container framed-grey">
-      <img [src]="monster.img" class="card-img-top" alt="..." style="height: 100%;">
+    <div class="col-md-4 rpgui-container framed-grey" style="max-height: 530px;">
+      <img [src]="monster.img" class="card-img-top">
     </div>
     <div class="col-md-8">
+      <div class="row">
+        <div class="col-12">
+          <p class="life">HP TOTAL : {{monster.currentHealth}}</p>
+        </div>
+      </div>
       <div class="row">
         <div class="col-12">
           <p>CAGNOTTE : {{monster.drop}}<span *ngIf="monster.drop">, </span> {{monster.rareDrop}} <span *ngIf="monster.rareDrop">RARE(S)</span> {{monster.epicDrop}} <span *ngIf="monster.epicDrop">EPIQUE(S)</span></p>
@@ -68,11 +73,6 @@
       <div class="row">
         <div class="col-12">
           <p>DEFENSE &nbsp;: {{monster.defense.blueDie}} <span class="custom-font DIE-BLUE">s</span> {{monster.defense.blackDie}} <span class="custom-font DIE-BLACK">s</span> </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p>HP TOTAL : {{monster.currentHealth}}</p>
         </div>
       </div>
       <div class="row" *ngIf="monster.closeAttack">
@@ -102,8 +102,8 @@
       </div>
       <div class="row" style="margin-top: 10px;">
         <hr>
-        <div *ngIf="monster.name === 'Ytheria, Undead Queen'">
-          <p (click)="addOneMob()"><span class="custom-font attack rpgui-cursor-point">a</span></p>
+        <div *ngIf="monster.name === 'Ytheria, Undead Queen'" class="col">
+          <p (click)="addOneMob()"><span class="custom-font attack rpgui-cursor-point">e</span></p>
         </div>
         <div *ngIf="monster.currentHealth > 0" class="col" style="text-align: right; padding-right: 25px;">
             <p (click)="dealDamage()"><span class="custom-font attack-roaming rpgui-cursor-point">a</span></p>

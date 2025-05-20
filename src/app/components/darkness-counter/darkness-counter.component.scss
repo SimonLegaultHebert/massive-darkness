@@ -1,6 +1,6 @@
 .form-darkness-1 {
     background-image: url("/darkness-1.png");
-    background-size: cover;
+    background-size: contain;
     image-rendering: auto !important;
 }
 
@@ -16,9 +16,9 @@ input {
 }
 
 .darkness-1 {
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 .darkness-2 {
-    margin-top: 55px;
+    margin-top: 65px;
 }
