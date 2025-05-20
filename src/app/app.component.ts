@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'massive-darkness';
 
   constructor() {
-    // setTimeout(() => {
-    //   window.open('https://www.youtube.com/watch?v=FpYNs-EfJjI&t=20986s', '_blank');
-    // }, 2000);
+    setTimeout(() => {
+      window.open('https://www.youtube.com/watch?v=H4FWFUdBRBw', '_blank');
+    }, 2000);
   }
 }
 

@@ -113,7 +113,7 @@ export class LifeTabComponent implements OnInit {
         setTimeout(() => {
           this.soundService.triggerLeaderKillSound();
         }, timeout)
-        return `<p>Le héro gagne ${exp} d'expérience et le reste des boulets reçoit 2 d'expérience!</p><p>Empochez cette cagnote!</p>`;
+        return `<p>Le héro gagne ${exp} d'expérience et le reste des boulets reçoit 2 d'expérience!</p><p>Empochez cette cagnotte!</p>`;
       } else {
         setTimeout(() => {
           this.soundService.triggerMobKillSound();
