@@ -56,7 +56,7 @@ export class DarknessCounterComponent implements OnInit {
       }
       case '4': {
         this.modalService.changeTitle('Par ici la monnaie!')
-        text = `<p>Ajoutez un trésor rare dans la pochette à butin.</p>`;
+        text = `<p>Ajoutez un trésor rare dans la pochette à butins.</p>`;
         this.modalService.changeText(text);
         this.modalService.show();
         this.soundService.triggerLootSound();
